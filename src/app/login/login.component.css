@@ -1,0 +1,17 @@
+.login-container {
+  padding: 1.5em;
+  background-color: rgba(224, 133, 105, 0.452);
+  width: 30em;
+  max-width: 80%;
+  margin: 4em auto;
+  border: solid 2px #0000009a;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+}
