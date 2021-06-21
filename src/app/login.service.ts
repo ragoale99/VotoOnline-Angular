@@ -14,8 +14,16 @@ import { User } from './user.model';
 })
 export class LoginService {
   error = new Subject<string>();
-
+  private role = '';
   constructor(private http: HttpClient) {}
+
+  getRole() {
+    return this.role;
+  }
+
+  setRole(ruolo: string) {
+    this.role = ruolo;
+  }
 
   loginUser(email: string, password: string, url: string) {
     const postData: User = { email: email, password: password };

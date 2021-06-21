@@ -10,21 +10,16 @@ import { Output } from '@angular/core';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService],
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm!: NgForm;
-  @Input()
-  role!: string;
-  /* error!: (string | number)[]; */
-  //* fondamentale che l'output sia con il nome dell'input (role) + "Change" => twoWayDataBinding!
-  @Output() roleChange = new EventEmitter<string>();
 
+  role = '';
+  data: any;
   user = {
     email: '',
     password: '',
   };
-  data: any;
 
   submitted = false;
   constructor(private http: HttpClient, private loginService: LoginService) {}
@@ -48,7 +43,7 @@ export class LoginComponent implements OnInit {
           (responseData) => {
             this.data = responseData;
             this.role = this.data.role;
-            this.roleChange.emit(this.role);
+            this.loginService.setRole(this.role);
           },
           (error) => {
             error.next(error.message);
@@ -59,16 +54,17 @@ export class LoginComponent implements OnInit {
         .loginUser(
           userData.email,
           userData.password,
-          'http://127.0.0.1:3100/login?__example=genedricUser'
+          'http://127.0.0.1:3100/login?__example=genericUser'
         )
         .subscribe(
           (responseData) => {
             this.data = responseData;
             this.role = this.data.role;
-            this.roleChange.emit(this.role);
+            this.loginService.setRole(this.role);
           },
           (error) => {
-            /* this.error = [error.stauts, error.statusText]; */
+            error.next(error.message);
+            console.log(error.message);
           }
         );
     }
