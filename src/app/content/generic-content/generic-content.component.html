@@ -1,0 +1,15 @@
+<p>generic-content works!</p>
+
+<ngb-alert
+  class="notifica"
+  #staticAlert
+  *ngIf="!staticAlertClosed"
+  (closed)="staticAlertClosed = true"
+  type="success"
+>
+  <strong>Ti sei autenticato correttamente!</strong>
+  <hr />
+  <p>
+    Ora puoi iniziare una nuova votazione o vedere cosa hai votato in passato.
+  </p>
+</ngb-alert>

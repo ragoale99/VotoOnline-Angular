@@ -1,5 +1,5 @@
 <div class="login-container">
-  <form (ngSubmit)="onSubmit()" #f="ngForm">
+  <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
     <div class="form-group">
       <label for="email">Email address</label>
       <input
@@ -64,11 +64,5 @@
       </button>
     </div>
   </form>
-  <div class="row" *ngIf="submitted">
-    <div class="col-xs-12">
-      <h3>Your data</h3>
-      <p>Email: {{ user.email }}</p>
-      <p>Password: {{ user.password }}</p>
-    </div>
-  </div>
+  <!--   <p>{{ error[0] }} - {{ error[1] }}</p> -->
 </div>

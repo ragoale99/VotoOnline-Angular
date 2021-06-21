@@ -1,0 +1,3 @@
+<app-login [(role)]="role" *ngIf="role === ''"></app-login>
+<app-admin-content *ngIf="role === 'admin'"></app-admin-content>
+<app-generic-content *ngIf="role === 'genericUser'"></app-generic-content>

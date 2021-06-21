@@ -10,3 +10,11 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.notifica {
+  position: fixed;
+  right: 0;
+  top: 3em;
+  width: 25em;
+  max-width: 50%;
+}
