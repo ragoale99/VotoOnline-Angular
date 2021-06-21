@@ -4,8 +4,8 @@
   width: 30em;
   max-width: 80%;
   margin: 4em auto;
-  border: solid 2px #0000009a;
-  border-radius: 10px;
+  border: solid 1px #0000009a;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,4 +14,8 @@
 
 form {
   width: 100%;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
 }

@@ -1,28 +1,49 @@
 <div class="login-container">
-  <form>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
+      <label for="email">Email address</label>
       <input
         type="email"
         class="form-control"
-        id="exampleInputEmail1"
+        name="email"
+        id="email"
+        ngModel
         aria-describedby="emailHelp"
         placeholder="Enter email"
+        #email="ngModel"
+        required
       />
+      <span class="help-block" *ngIf="!email.valid && email.touched"
+        >Plese enter a valid email</span
+      >
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
+      <label for="password">Password</label>
       <input
         type="password"
         class="form-control"
-        id="exampleInputPassword1"
+        name="password"
+        id="password"
         placeholder="Password"
+        ngModel
+        required
       />
     </div>
     <div class="d-flex justify-content-center">
-      <button type="submit" class="btn btn-primary px-5 py-2 mt-2">
-        Submit
+      <button
+        type="submit"
+        class="btn btn-primary px-5 py-2 mt-2"
+        [disabled]="!f.valid"
+      >
+        Log In
       </button>
     </div>
   </form>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your data</h3>
+      <p>Email: {{ user.email }}</p>
+      <p>Password: {{ user.password }}</p>
+    </div>
+  </div>
 </div>
