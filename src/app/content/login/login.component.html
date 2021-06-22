@@ -54,22 +54,24 @@
         Valid password
       </p>
     </div>
-    <div
-      class="d-flex justify-content-center mt-4"
-      placement="bottom"
-      [ngbTooltip]="
-        !f.valid
-          ? 'Bottone disabilitato. Controlla che email e password siano valide!'
-          : ''
-      "
-    >
-      <button
-        type="submit"
-        class="btn btn-primary px-5 py-2 log"
-        [disabled]="!f.valid"
+    <div class="submit-container">
+      <div
+        class="sub-block mt-2"
+        placement="bottom"
+        [ngbTooltip]="
+          !f.valid
+            ? 'Bottone disabilitato. Controlla che email e password siano valide!'
+            : ''
+        "
       >
-        Log In
-      </button>
+        <button
+          type="submit"
+          class="btn btn-primary px-5 py-2 log"
+          [disabled]="!f.valid"
+        >
+          Log In
+        </button>
+      </div>
     </div>
   </form>
 </div>

@@ -41,3 +41,18 @@ input.ng-valid.ng-touched:focus {
 .log:disabled {
   cursor: not-allowed;
 }
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.sub-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 50%;
+}
