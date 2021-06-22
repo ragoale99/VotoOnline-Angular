@@ -1,4 +1,4 @@
-<div class="login-container">
+<div class="login-container" *ngIf="errorTextStatus === ''">
   <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
     <div class="form-group">
       <label for="email">Email address</label>
@@ -74,4 +74,13 @@
       </div>
     </div>
   </form>
+</div>
+<div class="error-container" *ngIf="errorTextStatus !== ''">
+  <p>Qualcosa è andato storto!</p>
+  <p>
+    <strong>{{ errorStatus }} - {{ errorTextStatus }}</strong>
+  </p>
+  <button type="button" class="btn btn-danger" (click)="setErrorDef()">
+    Torna alla pagina di Login
+  </button>
 </div>

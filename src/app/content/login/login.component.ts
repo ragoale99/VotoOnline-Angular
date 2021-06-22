@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../../user.model';
 import { LoginService } from '../../login.service';
@@ -10,7 +10,8 @@ import { LoginService } from '../../login.service';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm!: NgForm;
-
+  errorStatus = 200;
+  errorTextStatus = '';
   role = '';
   data: any;
   user = {
@@ -43,8 +44,8 @@ export class LoginComponent implements OnInit {
             this.loginService.setRole(this.role);
           },
           (error) => {
-            console.log(error.status);
-            console.log(error.statusText);
+            this.errorStatus = error.status;
+            this.errorTextStatus = error.statusText;
           }
         );
     } else {
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
         .loginUser(
           userData.email,
           userData.password,
-          'http://127.0.0.1:3100/login?__example=gednericUser'
+          'http://127.0.0.1:3100/login?__example=genericUser'
         )
         .subscribe(
           (responseData) => {
@@ -61,11 +62,16 @@ export class LoginComponent implements OnInit {
             this.loginService.setRole(this.role);
           },
           (error) => {
-            console.log(error.status);
-            console.log(error.statusText);
+            this.errorStatus = error.status;
+            this.errorTextStatus = error.statusText;
           }
         );
     }
     this.loginForm.reset();
+  }
+
+  setErrorDef() {
+    this.errorStatus = 200;
+    this.errorTextStatus = '';
   }
 }

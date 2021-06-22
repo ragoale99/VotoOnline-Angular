@@ -56,3 +56,9 @@ input.ng-valid.ng-touched:focus {
   flex-direction: row;
   width: 50%;
 }
+
+.error-container {
+  margin-top: 3em;
+  text-align: center;
+  font-size: 50px;
+}
