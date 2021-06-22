@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Votation } from './votation.model';
 import { VoteCard } from './vote-card.model';
 
@@ -6,6 +6,9 @@ import { VoteCard } from './vote-card.model';
   providedIn: 'root',
 })
 export class VoteService {
+  votationSelected = new EventEmitter<Votation>();
+
+  // temporaneo!
   today = new Date();
   tomorrow = new Date(this.today.setDate(this.today.getDate() + 1));
   votations: Votation[] = [
@@ -59,13 +62,13 @@ export class VoteService {
 
   uncompletedVotations() {
     return this.votations.filter((votation) => {
-      votation.voted === false;
+      return votation.voted === false;
     });
   }
 
   completedVotations() {
     return this.votations.filter((votation) => {
-      votation.voted === false;
+      return votation.voted !== false;
     });
   }
 }

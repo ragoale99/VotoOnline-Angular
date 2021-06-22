@@ -40,6 +40,7 @@
     position: fixed;
     bottom: 0.4em;
     right: 0.4em;
+    z-index: 1;
   }
 
   .kc_fab_main_btn:hover {

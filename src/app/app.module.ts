@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { CountdownModule } from 'ngx-countdown';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,6 +11,7 @@ import { LoginComponent } from './content/login/login.component';
 import { ContentComponent } from './content/content.component';
 import { GenericContentComponent } from './content/generic-content/generic-content.component';
 import { AdminContentComponent } from './content/admin-content/admin-content.component';
+import { FormVotazioneComponent } from './content/generic-content/form-votazione/form-votazione.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,15 @@ import { AdminContentComponent } from './content/admin-content/admin-content.com
     ContentComponent,
     GenericContentComponent,
     AdminContentComponent,
+    FormVotazioneComponent,
   ],
-  imports: [BrowserModule, FormsModule, NgbModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    NgbModule,
+    HttpClientModule,
+    CountdownModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

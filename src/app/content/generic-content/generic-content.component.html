@@ -1,62 +1,115 @@
-<ngb-alert
-  class="notifica"
-  #staticAlert
-  *ngIf="!staticAlertClosed"
-  (closed)="staticAlertClosed = true"
-  type="success"
->
-  <strong>Ti sei autenticato correttamente!</strong>
-  <hr />
-  <p>
-    Ora puoi iniziare una nuova votazione o vedere cosa hai votato in passato.
-  </p>
-</ngb-alert>
+<div *ngIf="!startVotation">
+  <!-- NOTIFICA DI ACCESSO -->
+  <ngb-alert
+    class="notifica"
+    #staticAlert
+    *ngIf="!staticAlertClosed"
+    (closed)="staticAlertClosed = true"
+    type="success"
+  >
+    <strong>Ti sei autenticato correttamente!</strong>
+    <hr />
+    <p>
+      Ora puoi iniziare una nuova votazione o vedere cosa hai votato in passato.
+    </p>
+  </ngb-alert>
+  <!-- FINE NOTIFICA DI ACCESSO -->
 
-<div class="container mt-4">
-  <div class="row title-list">
-    <div class="col">
-      <h3 class="mt-2"><strong>Votazioni disponibili</strong></h3>
+  <div class="container mt-4">
+    <div class="row title-list">
+      <div class="col">
+        <h3 class="mt-2"><strong>Votazioni disponibili</strong></h3>
+      </div>
+    </div>
+    <div class="row header-list">
+      <div class="col-3 mt-1"><strong>Votazione</strong></div>
+      <div class="col-2 mt-1"><strong>Data inizio</strong></div>
+      <div class="col-2 mt-1"><strong>Data fine</strong></div>
+      <div class="col-5 mt-1"><strong>Descrizione</strong></div>
+    </div>
+    <div
+      class="row my-row-clickable"
+      *ngFor="let votation of uncompletedVotations; let i = index"
+      [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
+      (click)="openModal(content, votation)"
+    >
+      <div class="col-3 mt-2">
+        <strong>{{ votation.title }}</strong>
+      </div>
+      <div class="col-2 mt-2">
+        {{ votation.dataStart | date: "dd/MM/yyyy" }}
+      </div>
+      <div class="col-2 mt-2">{{ votation.dataEnd | date: "dd/MM/yyyy" }}</div>
+      <div class="col-5 mt-2">{{ votation.description }}</div>
+    </div>
+    <div class="row title-list mt-4">
+      <div class="col">
+        <h3 class="mt-2"><strong>Votazioni che hai già concluso</strong></h3>
+      </div>
+    </div>
+    <div class="row header-list">
+      <div class="col-3 mt-1"><strong>Votazione</strong></div>
+      <div class="col-5 mt-1"><strong>Descrizione</strong></div>
+      <div class="col-4 mt-1"><strong>Voto</strong></div>
+    </div>
+    <div
+      class="row my-row"
+      *ngFor="let votation of completedVotations; let i = index"
+      [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
+    >
+      <div class="col-3 mt-2">
+        <strong>{{ votation.title }}</strong>
+      </div>
+      <div class="col-5 mt-2">
+        {{ votation.description }}
+      </div>
+      <div class="col-4 mt-2">{{ votation.result }}</div>
     </div>
   </div>
-  <div class="row header-list">
-    <div class="col-3"><strong>Votazione</strong></div>
-    <div class="col-2"><strong>Data inizio</strong></div>
-    <div class="col-2"><strong>Data fine</strong></div>
-    <div class="col-5"><strong>Descrizione</strong></div>
-  </div>
-  <div
-    class="row my-row"
-    *ngFor="let votation of uncompletedVotations; let i = index"
-    [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
-  >
-    <div class="col-3 mt-2">
-      <strong>{{ votation.title }}</strong>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Stai per iniziare la votazione
+      </h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-    <div class="col-2 mt-2">{{ votation.dataStart | date: "dd/MM/yyyy" }}</div>
-    <div class="col-2 mt-2">{{ votation.dataEnd | date: "dd/MM/yyyy" }}</div>
-    <div class="col-5 mt-2">{{ votation.description }}</div>
-  </div>
-  <div class="row title-list">
-    <div class="col">
-      <h3 class="mt-2"><strong>Votazioni che hai già concluso</strong></h3>
+    <div class="modal-body">
+      <p>La votazione ha:</p>
+      <ul>
+        <li><strong>Nome: </strong> {{ selectedVotation.title }}</li>
+        <li>
+          <strong>Descrizione: </strong> {{ selectedVotation.description }}
+        </li>
+        <li>
+          <strong>Data Inizio: </strong>
+          {{ selectedVotation.dataStart | date: "dd/MM/yyyy" }}
+        </li>
+        <li>
+          <strong>Data Fine: </strong>
+          {{ selectedVotation.dataEnd | date: "dd/MM/yyyy" }}
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="row header-list">
-    <div class="col-3"><strong>Votazione</strong></div>
-    <div class="col-5"><strong>Descrizione</strong></div>
-    <div class="col-4"><strong>Voto</strong></div>
-  </div>
-  <div
-    class="row my-row"
-    *ngFor="let votation of completedVotations; let i = index"
-    [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
-  >
-    <div class="col-3 mt-2">
-      <strong>{{ votation.title }}</strong>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close()">
+        Indietro
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="modal.close(); openVotation()"
+      >
+        Inizia votazione
+      </button>
     </div>
-    <div class="col-5 mt-2">
-      {{ votation.description }}
-    </div>
-    <div class="col-4 mt-2">{{ votation.result }}</div>
-  </div>
+  </ng-template>
 </div>
+
+<app-form-votazione *ngIf="startVotation"></app-form-votazione>

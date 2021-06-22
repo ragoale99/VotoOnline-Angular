@@ -1,20 +1,33 @@
 .title-list {
   text-align: center;
-  border: 1px solid rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
   background-color: rgba(204, 204, 204, 0.637);
 }
 
 .header-list {
   text-align: center;
-  border-left: 1px solid rgb(0, 0, 0);
-  border-right: 1px solid rgb(0, 0, 0);
-  border-bottom: 1px solid rgb(0, 0, 0);
+  min-height: 2em;
+  font-size: 18px;
+  text-align: center;
+  color: #6d1c1b;
   background-color: rgba(139, 139, 139, 0.637);
 }
 
-.my-row {
-  height: 2.5em;
+.my-row,
+.my-row-clickable {
+  min-height: 2.5em;
   text-align: center;
+}
+
+.my-row-clickable:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.3s;
+}
+
+.my-row-clickable:active {
+  transform: scale(1);
+  transition: all 0.3s;
 }
 
 .dark {
@@ -23,4 +36,15 @@
 
 .light {
   background-color: rgba(224, 211, 211, 0.897);
+}
+
+@media (max-width: 768px) {
+  .my-row,
+  .my-row-clickable {
+    font-size: 14px;
+  }
+
+  .header-list {
+    font-size: 16px;
+  }
 }

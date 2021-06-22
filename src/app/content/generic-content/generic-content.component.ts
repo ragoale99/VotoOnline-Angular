@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { Votation } from 'src/app/votation.model';
 import { VoteService } from '../../vote.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-generic-content',
@@ -10,10 +11,15 @@ import { VoteService } from '../../vote.service';
   styleUrls: ['./generic-content.component.css'],
 })
 export class GenericContentComponent implements OnInit {
+  startVotation = false;
   staticAlertClosed = false;
+  selectedVotation!: Votation;
   completedVotations!: Votation[];
   uncompletedVotations!: Votation[];
-  constructor(private voteService: VoteService) {}
+  constructor(
+    private voteService: VoteService,
+    private modalService: NgbModal
+  ) {}
 
   @ViewChild('staticAlert', { static: false })
   staticAlert!: NgbAlert;
@@ -22,5 +28,15 @@ export class GenericContentComponent implements OnInit {
     this.completedVotations = this.voteService.completedVotations();
     this.uncompletedVotations = this.voteService.uncompletedVotations();
     setTimeout(() => this.staticAlert.close(), 4000);
+  }
+
+  openModal(content: any, votation: Votation) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    this.selectedVotation = votation;
+  }
+
+  openVotation() {
+    this.startVotation = true;
+    this.voteService.votationSelected.emit(this.selectedVotation);
   }
 }
