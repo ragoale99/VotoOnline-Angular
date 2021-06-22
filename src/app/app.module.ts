@@ -10,7 +10,6 @@ import { LoginComponent } from './content/login/login.component';
 import { ContentComponent } from './content/content.component';
 import { GenericContentComponent } from './content/generic-content/generic-content.component';
 import { AdminContentComponent } from './content/admin-content/admin-content.component';
-import { ModalComponent } from './header/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { ModalComponent } from './header/modal/modal.component';
     ContentComponent,
     GenericContentComponent,
     AdminContentComponent,
-    ModalComponent,
   ],
   imports: [BrowserModule, FormsModule, NgbModule, HttpClientModule],
   providers: [],

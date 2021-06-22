@@ -1,10 +1,7 @@
 import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../../user.model';
 import { LoginService } from '../../login.service';
-import { Input } from '@angular/core';
-import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +19,7 @@ export class LoginComponent implements OnInit {
   };
 
   submitted = false;
-  constructor(private http: HttpClient, private loginService: LoginService) {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {}
 
