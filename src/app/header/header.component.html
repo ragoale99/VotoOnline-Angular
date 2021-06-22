@@ -30,10 +30,14 @@
   </svg>
   <h1 class="mt-2">Voto Online</h1>
   <div class="last mr-4 mt-1" *ngIf="ruolo !== ''">
-    <button class="btn btn-primary px-5" (click)="openModal(content)">
-      Log Out
+    <button class="btn btn-warning px-5 log-out" (click)="openModal(content)">
+      <strong>Log Out</strong>
     </button>
   </div>
+</div>
+
+<div *ngIf="ruolo !== ''">
+  <button class="kc_fab_main_btn" (click)="openModal(content)">x</button>
 </div>
 
 <ng-template #content let-modal>

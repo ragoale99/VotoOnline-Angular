@@ -1,5 +1,3 @@
-<p>generic-content works!</p>
-
 <ngb-alert
   class="notifica"
   #staticAlert
@@ -13,3 +11,52 @@
     Ora puoi iniziare una nuova votazione o vedere cosa hai votato in passato.
   </p>
 </ngb-alert>
+
+<div class="container mt-4">
+  <div class="row title-list">
+    <div class="col">
+      <h3 class="mt-2"><strong>Votazioni disponibili</strong></h3>
+    </div>
+  </div>
+  <div class="row header-list">
+    <div class="col-3"><strong>Votazione</strong></div>
+    <div class="col-2"><strong>Data inizio</strong></div>
+    <div class="col-2"><strong>Data fine</strong></div>
+    <div class="col-5"><strong>Descrizione</strong></div>
+  </div>
+  <div
+    class="row my-row"
+    *ngFor="let votation of uncompletedVotations; let i = index"
+    [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
+  >
+    <div class="col-3 mt-2">
+      <strong>{{ votation.title }}</strong>
+    </div>
+    <div class="col-2 mt-2">{{ votation.dataStart | date: "dd/MM/yyyy" }}</div>
+    <div class="col-2 mt-2">{{ votation.dataEnd | date: "dd/MM/yyyy" }}</div>
+    <div class="col-5 mt-2">{{ votation.description }}</div>
+  </div>
+  <div class="row title-list">
+    <div class="col">
+      <h3 class="mt-2"><strong>Votazioni che hai già concluso</strong></h3>
+    </div>
+  </div>
+  <div class="row header-list">
+    <div class="col-3"><strong>Votazione</strong></div>
+    <div class="col-5"><strong>Descrizione</strong></div>
+    <div class="col-4"><strong>Voto</strong></div>
+  </div>
+  <div
+    class="row my-row"
+    *ngFor="let votation of completedVotations; let i = index"
+    [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
+  >
+    <div class="col-3 mt-2">
+      <strong>{{ votation.title }}</strong>
+    </div>
+    <div class="col-5 mt-2">
+      {{ votation.description }}
+    </div>
+    <div class="col-4 mt-2">{{ votation.result }}</div>
+  </div>
+</div>

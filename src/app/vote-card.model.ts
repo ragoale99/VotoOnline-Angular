@@ -1,4 +1,3 @@
-export interface VoteCard {
-  imgPath: string;
-  name: string;
+export class VoteCard {
+  constructor(public imgPath: string, public name: string) {}
 }

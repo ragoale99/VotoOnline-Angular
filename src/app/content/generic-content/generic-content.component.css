@@ -1,0 +1,26 @@
+.title-list {
+  text-align: center;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgba(204, 204, 204, 0.637);
+}
+
+.header-list {
+  text-align: center;
+  border-left: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background-color: rgba(139, 139, 139, 0.637);
+}
+
+.my-row {
+  height: 2.5em;
+  text-align: center;
+}
+
+.dark {
+  background-color: rgba(116, 105, 105, 0.664);
+}
+
+.light {
+  background-color: rgba(224, 211, 211, 0.897);
+}
