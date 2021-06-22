@@ -112,4 +112,7 @@
   </ng-template>
 </div>
 
-<app-form-votazione *ngIf="startVotation"></app-form-votazione>
+<app-form-votazione
+  *ngIf="startVotation"
+  [selectedVotation]="selectedVotation"
+></app-form-votazione>

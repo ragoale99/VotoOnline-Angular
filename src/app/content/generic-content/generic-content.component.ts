@@ -37,6 +37,5 @@ export class GenericContentComponent implements OnInit {
 
   openVotation() {
     this.startVotation = true;
-    this.voteService.votationSelected.emit(this.selectedVotation);
   }
 }

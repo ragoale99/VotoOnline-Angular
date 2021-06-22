@@ -6,7 +6,7 @@ import { VoteCard } from './vote-card.model';
   providedIn: 'root',
 })
 export class VoteService {
-  votationSelected = new EventEmitter<Votation>();
+  /* votationSelected = new EventEmitter<Votation>(); */
 
   // temporaneo!
   today = new Date();
@@ -29,7 +29,7 @@ export class VoteService {
       this.tomorrow,
       false,
       '',
-      new VoteCard('ciao', 'patito comunista'),
+      new VoteCard('assets/images/Cattura.PNG', 'patito comunista'),
       new VoteCard('ciaone', 'forza italia')
     ),
     new Votation(

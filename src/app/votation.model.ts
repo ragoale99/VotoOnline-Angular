@@ -8,13 +8,13 @@ export class Votation {
     public dataEnd: Date,
     public voted: boolean,
     public result: string,
-    public alternative1: VoteCard,
-    public alternative2: VoteCard,
-    public alternative3?: VoteCard,
-    public alternative4?: VoteCard,
-    public alternative5?: VoteCard,
-    public alternative6?: VoteCard,
-    public alternative7?: VoteCard,
-    public alternative8?: VoteCard
+    public option1: VoteCard,
+    public option2: VoteCard,
+    public option3?: VoteCard,
+    public option4?: VoteCard,
+    public option5?: VoteCard,
+    public option6?: VoteCard,
+    public option7?: VoteCard,
+    public option8?: VoteCard
   ) {}
 }
