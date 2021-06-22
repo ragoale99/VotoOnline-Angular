@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit {
             this.loginService.setRole(this.role);
           },
           (error) => {
-            error.next(error.message);
+            console.log(error.status);
+            console.log(error.statusText);
           }
         );
     } else {
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
         .loginUser(
           userData.email,
           userData.password,
-          'http://127.0.0.1:3100/login?__example=genericUser'
+          'http://127.0.0.1:3100/login?__example=gednericUser'
         )
         .subscribe(
           (responseData) => {
@@ -60,8 +61,8 @@ export class LoginComponent implements OnInit {
             this.loginService.setRole(this.role);
           },
           (error) => {
-            error.next(error.message);
-            console.log(error.message);
+            console.log(error.status);
+            console.log(error.statusText);
           }
         );
     }

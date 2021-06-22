@@ -57,7 +57,11 @@
     <div
       class="d-flex justify-content-center mt-4"
       placement="bottom"
-      ngbTooltip="Bottone disabilitato. Controlla che email e password siano valide!"
+      [ngbTooltip]="
+        !f.valid
+          ? 'Bottone disabilitato. Controlla che email e password siano valide!'
+          : ''
+      "
     >
       <button
         type="submit"
