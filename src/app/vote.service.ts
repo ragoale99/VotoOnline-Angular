@@ -60,7 +60,7 @@ export class VoteService {
       '',
       new VoteCard('assets/images/noi_per_il_futuro.jpg', 'Noi per il futuro'),
       new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al Popolo!'),
-      new VoteCard('assets/images/cambiamo.png', 'Cambiamo!')
+      new VoteCard('assets/images/cambiamo.png', 'Cambiamo!	')
     ),
   ];
 

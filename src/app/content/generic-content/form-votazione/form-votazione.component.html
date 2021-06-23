@@ -34,7 +34,7 @@
           />
         </p>
 
-        <ul *ngIf="showRules">
+        <ul *ngIf="showRules" class="lista">
           <li>È possibile votare <strong>un solo</strong> partito.</li>
           <li>
             Per votare è necessario fare un
@@ -104,7 +104,7 @@
     </button>
   </div>
   <div class="modal-body text-center">
-    <p>Hai scelto:</p>
+    <h4>Hai scelto:</h4>
     <img
       [src]="selectedCard.imgPath"
       [alt]="'logo ' + selectedCard.name"
