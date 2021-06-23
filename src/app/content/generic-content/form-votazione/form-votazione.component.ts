@@ -40,13 +40,25 @@ export class FormVotazioneComponent implements OnInit {
     this.optionsArr = Object.values(this.optionsObj).filter((el) => {
       return el !== undefined;
     });
+    console.log(this.selectedCard);
   }
 
-  choisedCard() {
-    console.log(this.optionsArr);
+  choisedCard(option: VoteCard) {
+    this.selectedCard = option;
   }
 
   onShowRules() {
     this.showRules = !this.showRules;
+  }
+
+  classesCardSelector(option: VoteCard) {
+    if (this.selectedCard !== undefined) {
+      if (this.selectedCard === option) {
+        return 'hover-behaviour selected';
+      } else {
+        return 'not-selected';
+      }
+    }
+    return 'hover-behaviour';
   }
 }

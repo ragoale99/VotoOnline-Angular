@@ -55,7 +55,11 @@
 
     <div class="row">
       <div class="col-lg-3 col-md-6" *ngFor="let option of optionsArr">
-        <div class="card" (dblclick)="choisedCard()">
+        <div
+          class="card disable-select"
+          (dblclick)="choisedCard(option)"
+          [ngClass]="classesCardSelector(option)"
+        >
           <div class="card-body">
             <img
               [src]="option.imgPath"
@@ -67,6 +71,14 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <button
+        class="btn btn-success m-auto"
+        [disabled]="selectedCard === undefined"
+      >
+        Termina votazione
+      </button>
     </div>
   </div>
 </section>

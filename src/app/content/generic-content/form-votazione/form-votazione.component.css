@@ -11,6 +11,14 @@
   font-weight: bold;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.my-toprow {
+  margin-bottom: 5em;
+}
+
 .rules:hover {
   cursor: pointer;
 }
@@ -32,7 +40,7 @@
   margin-bottom: 5em; /* Added */
 }
 
-#vote-container .card:hover {
+#vote-container .hover-behaviour:hover {
   transform: scale(1.05);
   background-color: rgba(236, 174, 234, 0.52);
   color: rgb(0, 0, 0);
@@ -40,17 +48,30 @@
   box-shadow: 5px 5px 10px rgba(131, 85, 131, 0.644);
 }
 
-ul {
-  list-style-type: none;
+.selected {
+  background-color: rgba(236, 174, 234, 0.52);
 }
 
-.my-toprow {
-  margin-bottom: 5em;
+.not-selected {
+  background-color: rgba(70, 64, 64, 0.315);
+}
+
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.btn:disabled {
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
-  #vote-container .card {
-    height: 18em;
+  #vote-container .card img {
+    width: 10em !important;
+    height: 10em;
   }
 }
 
