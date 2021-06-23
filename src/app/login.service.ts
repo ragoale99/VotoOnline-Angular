@@ -14,7 +14,7 @@ import { User } from './user.model';
 })
 export class LoginService {
   error = new Subject<string>();
-  private role = 'genericUser';
+  private role = '';
   constructor(private http: HttpClient) {}
 
   getRole() {
