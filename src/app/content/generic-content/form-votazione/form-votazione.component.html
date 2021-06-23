@@ -57,7 +57,10 @@
       <div class="col-lg-3 col-md-6" *ngFor="let option of optionsArr">
         <div
           class="card disable-select"
-          (dblclick)="choisedCard(option)"
+          (dblclick)="
+            (option === selectedCard || selectedCard === undefined) &&
+              choisedCard(option)
+          "
           [ngClass]="classesCardSelector(option)"
         >
           <div class="card-body">

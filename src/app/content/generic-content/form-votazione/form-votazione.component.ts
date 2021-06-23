@@ -8,7 +8,7 @@ import { VoteCard } from 'src/app/vote-card.model';
   styleUrls: ['./form-votazione.component.css'],
 })
 export class FormVotazioneComponent implements OnInit {
-  selectedCard!: VoteCard;
+  selectedCard!: VoteCard | undefined;
   @Input() selectedVotation!: Votation;
   optionsObj!: Object;
   optionsArr: VoteCard[] = [];
@@ -44,7 +44,11 @@ export class FormVotazioneComponent implements OnInit {
   }
 
   choisedCard(option: VoteCard) {
-    this.selectedCard = option;
+    if (this.selectedCard === undefined) {
+      this.selectedCard = option;
+    } else {
+      this.selectedCard = undefined;
+    }
   }
 
   onShowRules() {

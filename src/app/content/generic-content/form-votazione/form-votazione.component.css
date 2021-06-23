@@ -27,7 +27,7 @@ ul {
   margin-top: -80px;
 }
 
-#vote-container .card {
+.card {
   height: 18em;
   border-radius: 0;
   box-shadow: 5px 5px 15px #ccc;
@@ -40,7 +40,8 @@ ul {
   margin-bottom: 5em; /* Added */
 }
 
-#vote-container .hover-behaviour:hover {
+#vote-container .hover-behaviour:hover,
+#vote-container .selected {
   transform: scale(1.05);
   background-color: rgba(236, 174, 234, 0.52);
   color: rgb(0, 0, 0);
@@ -48,12 +49,9 @@ ul {
   box-shadow: 5px 5px 10px rgba(131, 85, 131, 0.644);
 }
 
-.selected {
-  background-color: rgba(236, 174, 234, 0.52);
-}
-
 .not-selected {
   background-color: rgba(70, 64, 64, 0.315);
+  cursor: default;
 }
 
 .disable-select {
