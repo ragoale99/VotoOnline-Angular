@@ -66,51 +66,52 @@
       <div class="col-4 mt-2">{{ votation.result }}</div>
     </div>
   </div>
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">
-        Stai per iniziare la votazione
-      </h4>
-      <button
-        type="button"
-        class="close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>La votazione ha:</p>
-      <ul>
-        <li><strong>Nome: </strong> {{ selectedVotation.title }}</li>
-        <li>
-          <strong>Descrizione: </strong> {{ selectedVotation.description }}
-        </li>
-        <li>
-          <strong>Data Inizio: </strong>
-          {{ selectedVotation.dataStart | date: "dd/MM/yyyy" }}
-        </li>
-        <li>
-          <strong>Data Fine: </strong>
-          {{ selectedVotation.dataEnd | date: "dd/MM/yyyy" }}
-        </li>
-      </ul>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modal.close()">
-        Indietro
-      </button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        (click)="modal.close(); openVotation()"
-      >
-        Inizia votazione
-      </button>
-    </div>
-  </ng-template>
 </div>
+
+<!-- MODALE -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Stai per iniziare la votazione
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>La votazione ha:</p>
+    <ul>
+      <li><strong>Nome: </strong> {{ selectedVotation.title }}</li>
+      <li><strong>Descrizione: </strong> {{ selectedVotation.description }}</li>
+      <li>
+        <strong>Data Inizio: </strong>
+        {{ selectedVotation.dataStart | date: "dd/MM/yyyy" }}
+      </li>
+      <li>
+        <strong>Data Fine: </strong>
+        {{ selectedVotation.dataEnd | date: "dd/MM/yyyy" }}
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close()">
+      Indietro
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="modal.close(); openVotation()"
+    >
+      Inizia votazione
+    </button>
+  </div>
+</ng-template>
+<!-- FINE MODALE -->
 
 <app-form-votazione
   *ngIf="startVotation"
