@@ -33,7 +33,7 @@ export class VoteService {
       new VoteCard('assets/images/berla.jpg', 'Forza Italia'),
       new VoteCard('assets/images/movimento5stelle.jpg', 'Movimento 5 stelle'),
       new VoteCard('assets/images/noi_per_il_futuro.jpg', 'Noi per il futuro'),
-      new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al popolo'),
+      new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al popolo!'),
       new VoteCard(
         'assets/images/giovani_democratici.png',
         'Giovani democratici'
@@ -80,5 +80,10 @@ export class VoteService {
     return this.votations.filter((votation) => {
       return votation.voted !== false;
     });
+  }
+
+  cahngeStatusVotation(index: number, card: any) {
+    this.votations[index].voted = true;
+    this.votations[index].result = card.name;
   }
 }

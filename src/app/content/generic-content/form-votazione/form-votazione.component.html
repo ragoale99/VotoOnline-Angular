@@ -58,7 +58,7 @@
       <div class="col-lg-3 col-md-6" *ngFor="let option of optionsArr">
         <div
           class="card disable-select"
-          (dblclick)="
+          (click)="
             (option === selectedCard || selectedCard === undefined) &&
               choisedCard(option)
           "
@@ -77,13 +77,23 @@
       </div>
     </div>
     <div class="row">
-      <button
-        class="btn btn-primary m-auto"
-        [disabled]="selectedCard === undefined"
-        (click)="openModal(content)"
+      <div
+        class="m-auto"
+        placement="top"
+        [ngbTooltip]="
+          selectedCard === undefined
+            ? 'Bottone disabilitato. Scegli un partito da votare!'
+            : ''
+        "
       >
-        Termina votazione
-      </button>
+        <button
+          class="btn btn-primary"
+          [disabled]="selectedCard === undefined"
+          (click)="openModal(content)"
+        >
+          Termina votazione
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -116,7 +126,11 @@
     <button type="button" class="btn btn-secondary" (click)="modal.close()">
       Indietro
     </button>
-    <button type="button" class="btn btn-success" (click)="modal.close()">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="modal.close(); successVotation()"
+    >
       Conferma voto
     </button>
   </div>

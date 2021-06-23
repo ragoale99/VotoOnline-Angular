@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Votation } from 'src/app/votation.model';
 import { VoteCard } from 'src/app/vote-card.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VoteService } from 'src/app/vote.service';
 
 @Component({
   selector: 'app-form-votazione',
@@ -10,6 +11,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormVotazioneComponent implements OnInit {
   @Input() selectedVotation!: Votation;
+  @Input() indexVotation!: number;
+  @Input() startVotation!: boolean;
+  @Output() startVotationChange = new EventEmitter<boolean>();
   // in realtà selectedCard è un VoteCard (oppure undefined) ma per colpa di sto undefined rompe i coglioni
   // quindi any e chi si è visto si è visto
   selectedCard: any;
@@ -17,7 +21,10 @@ export class FormVotazioneComponent implements OnInit {
   optionsArr: VoteCard[] = [];
 
   showRules = false;
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private voteService: VoteService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.optionsObj = (({
@@ -70,5 +77,13 @@ export class FormVotazioneComponent implements OnInit {
       }
     }
     return 'hover-behaviour';
+  }
+
+  successVotation() {
+    this.voteService.cahngeStatusVotation(
+      this.indexVotation,
+      this.selectedCard
+    );
+    this.startVotationChange.emit(false);
   }
 }
