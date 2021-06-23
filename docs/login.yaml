@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: login
+  version: '1.0'
+  description: API per il login di un utente
+  contact:
+    name: VotoOnline
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /login:
+    post:
+      summary: ''
+      operationId: post-login
+      responses:
+        '200':
+          $ref: '#/components/responses/loginResponse'
+        '404':
+          description: Not Found
+        '502':
+          description: Bad Gateway
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      description: Login endpoint
+      tags:
+        - login
+components:
+  schemas: {}
+  responses:
+    loginResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              role:
+                type: string
+                description: 'ruolo: admin o utente normale'
+                enum:
+                  - admin
+                  - genericUser
+            required:
+              - role
+          examples:
+            admin:
+              value:
+                role: admin
+            genericUser:
+              value:
+                role: genericUser
+tags:
+  - name: login
