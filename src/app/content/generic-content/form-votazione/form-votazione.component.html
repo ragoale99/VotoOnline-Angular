@@ -19,16 +19,16 @@
         <h1>Votazione: {{ selectedVotation.title }}</h1>
         <p class="rules" (click)="onShowRules()">
           {{ !showRules ? "Apri" : "Chiudi" }} le regole da seguire per la
-          votazione:
+          votazione
           <img
             src="assets/icons/down.png"
-            alt="saf"
+            alt=""
             class="dropdown-img"
             *ngIf="!showRules"
           />
           <img
             src="assets/icons/up.png"
-            alt="saf"
+            alt=""
             class="dropdown-img"
             *ngIf="showRules"
           />

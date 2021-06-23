@@ -23,7 +23,7 @@ export class VoteService {
       new VoteCard('ciaone', 'patito democristiano')
     ),
     new Votation(
-      'Comunali',
+      'Regionali',
       'bruttissima votazione',
       this.today,
       this.tomorrow,
@@ -42,7 +42,7 @@ export class VoteService {
       new VoteCard('assets/images/fratelli_italia.png', "Fratelli d'Italia")
     ),
     new Votation(
-      'Comunali',
+      'Europee',
       'che schifo di votazione',
       this.today,
       this.tomorrow,

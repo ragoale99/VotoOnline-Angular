@@ -22,10 +22,10 @@
       </div>
     </div>
     <div class="row header-list">
-      <div class="col-3 mt-1"><strong>Votazione</strong></div>
-      <div class="col-2 mt-1"><strong>Data inizio</strong></div>
-      <div class="col-2 mt-1"><strong>Data fine</strong></div>
-      <div class="col-5 mt-1"><strong>Descrizione</strong></div>
+      <div class="col-sm-3 mt-1"><strong>Votazione</strong></div>
+      <div class="col-sm-2 mt-1"><strong>Data inizio</strong></div>
+      <div class="col-sm-2 mt-1"><strong>Data fine</strong></div>
+      <div class="col-sm-5 mt-1"><strong>Descrizione</strong></div>
     </div>
     <div
       class="row my-row-clickable"
@@ -33,14 +33,16 @@
       [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
       (click)="openModal(content, votation)"
     >
-      <div class="col-3 mt-2">
+      <div class="col-sm-3 mt-2">
         <strong>{{ votation.title }}</strong>
       </div>
-      <div class="col-2 mt-2">
+      <div class="col-sm-2 mt-2">
         {{ votation.dataStart | date: "dd/MM/yyyy" }}
       </div>
-      <div class="col-2 mt-2">{{ votation.dataEnd | date: "dd/MM/yyyy" }}</div>
-      <div class="col-5 mt-2">{{ votation.description }}</div>
+      <div class="col-sm-2 mt-2">
+        {{ votation.dataEnd | date: "dd/MM/yyyy" }}
+      </div>
+      <div class="col-sm-5 mt-2">{{ votation.description }}</div>
     </div>
     <div class="row title-list mt-4">
       <div class="col">
@@ -48,22 +50,22 @@
       </div>
     </div>
     <div class="row header-list">
-      <div class="col-3 mt-1"><strong>Votazione</strong></div>
-      <div class="col-5 mt-1"><strong>Descrizione</strong></div>
-      <div class="col-4 mt-1"><strong>Voto</strong></div>
+      <div class="col-sm-3 mt-1"><strong>Votazione</strong></div>
+      <div class="col-sm-5 mt-1"><strong>Descrizione</strong></div>
+      <div class="col-sm-4 mt-1"><strong>Voto</strong></div>
     </div>
     <div
       class="row my-row"
       *ngFor="let votation of completedVotations; let i = index"
       [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
     >
-      <div class="col-3 mt-2">
+      <div class="col-sm-3 mt-2">
         <strong>{{ votation.title }}</strong>
       </div>
-      <div class="col-5 mt-2">
+      <div class="col-sm-5 mt-2">
         {{ votation.description }}
       </div>
-      <div class="col-4 mt-2">{{ votation.result }}</div>
+      <div class="col-sm-4 mt-2">{{ votation.result }}</div>
     </div>
   </div>
 </div>
