@@ -18,16 +18,20 @@
   min-height: 2.5em;
   text-align: center;
 }
-
-.my-row-clickable:hover {
+.my-row-clickable {
   cursor: pointer;
-  transform: scale(1.03);
-  transition: all 0.3s;
 }
 
-.my-row-clickable:active {
-  transform: scale(1);
-  transition: all 0.3s;
+@media (min-width: 580px) {
+  .my-row-clickable:hover {
+    transform: scale(1.03);
+    transition: all 0.3s;
+  }
+
+  .my-row-clickable:active {
+    transform: scale(1);
+    transition: all 0.3s;
+  }
 }
 
 .dark {

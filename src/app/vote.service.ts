@@ -83,7 +83,8 @@ export class VoteService {
   }
 
   changeStatusVotation(card: any, votation: Votation) {
-    var n = this.votations.includes(votation);
-    console.log(n);
+    let found: any = this.votations.find((el) => el === votation);
+    found.voted = true;
+    found.result = card.name;
   }
 }

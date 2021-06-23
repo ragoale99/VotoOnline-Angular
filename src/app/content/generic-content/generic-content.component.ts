@@ -27,13 +27,13 @@ export class GenericContentComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.completedVotations = this.voteService.completedVotations();
     this.uncompletedVotations = this.voteService.uncompletedVotations();
+    setTimeout(() => this.staticAlert.close(), 4000);
   }
 
   ngOnInit(): void {
     /*     this.completedVotations = this.voteService.completedVotations();
     this.uncompletedVotations = this.voteService.uncompletedVotations();
     console.log('ciao'); */
-    setTimeout(() => this.staticAlert.close(), 4000);
   }
 
   openModal(content: any, votation: Votation) {
