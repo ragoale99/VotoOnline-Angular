@@ -13,7 +13,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class GenericContentComponent implements OnInit, DoCheck {
   startVotation = false;
   staticAlertClosed = false;
-  indexVotation!: number;
   selectedVotation!: Votation;
   completedVotations!: Votation[];
   uncompletedVotations!: Votation[];
@@ -37,10 +36,9 @@ export class GenericContentComponent implements OnInit, DoCheck {
     setTimeout(() => this.staticAlert.close(), 4000);
   }
 
-  openModal(content: any, votation: Votation, index: number) {
+  openModal(content: any, votation: Votation) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
     this.selectedVotation = votation;
-    this.indexVotation = index;
   }
 
   openVotation() {

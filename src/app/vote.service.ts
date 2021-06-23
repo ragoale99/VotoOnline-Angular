@@ -82,8 +82,8 @@ export class VoteService {
     });
   }
 
-  cahngeStatusVotation(index: number, card: any) {
-    this.votations[index].voted = true;
-    this.votations[index].result = card.name;
+  changeStatusVotation(card: any, votation: Votation) {
+    var n = this.votations.includes(votation);
+    console.log(n);
   }
 }

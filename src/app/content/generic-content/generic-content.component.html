@@ -31,7 +31,7 @@
       class="row my-row-clickable"
       *ngFor="let votation of uncompletedVotations; let i = index"
       [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
-      (click)="openModal(content, votation, i)"
+      (click)="openModal(content, votation)"
     >
       <div class="col-sm-3 mt-2">
         <strong>{{ votation.title }}</strong>
@@ -118,6 +118,5 @@
 <app-form-votazione
   *ngIf="startVotation"
   [selectedVotation]="selectedVotation"
-  [indexVotation]="indexVotation"
   [(startVotation)]="startVotation"
 ></app-form-votazione>

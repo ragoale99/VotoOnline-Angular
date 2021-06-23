@@ -11,7 +11,6 @@ import { VoteService } from 'src/app/vote.service';
 })
 export class FormVotazioneComponent implements OnInit {
   @Input() selectedVotation!: Votation;
-  @Input() indexVotation!: number;
   @Input() startVotation!: boolean;
   @Output() startVotationChange = new EventEmitter<boolean>();
   // in realtà selectedCard è un VoteCard (oppure undefined) ma per colpa di sto undefined rompe i coglioni
@@ -80,9 +79,9 @@ export class FormVotazioneComponent implements OnInit {
   }
 
   successVotation() {
-    this.voteService.cahngeStatusVotation(
-      this.indexVotation,
-      this.selectedCard
+    this.voteService.changeStatusVotation(
+      this.selectedCard,
+      this.selectedVotation
     );
     this.startVotationChange.emit(false);
   }
