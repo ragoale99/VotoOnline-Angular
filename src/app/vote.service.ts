@@ -29,7 +29,7 @@ export class VoteService {
       this.tomorrow,
       false,
       '',
-      new VoteCard('assets/images/Cattura.PNG', 'patito comunista'),
+      new VoteCard('assets/images/berla.jpg', 'patito comunista'),
       new VoteCard('ciaone', 'forza italia')
     ),
     new Votation(
