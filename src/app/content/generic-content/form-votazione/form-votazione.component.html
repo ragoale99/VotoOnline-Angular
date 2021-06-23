@@ -1,7 +1,72 @@
 <!--   <countdown [config]="{ leftTime: 600 }" class="timer px-5 py-3"></countdown> -->
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" [src]="selectedVotation.option1.imgPath" [alt]="selectedVotation.title">
+<!-- <div class="card" style="width: 18rem">
+  <img
+    class="card-img-top"
+    [src]="selectedVotation.option1.imgPath"
+    [alt]="selectedVotation.title"
+  />
   <div class="card-body">
-    <h3 class="card-title">{{selectedVotation.option1.name}}</h3>
-</div>
+    <h3 class="card-title">{{ selectedVotation.option1.name }}</h3>
+  </div>
+	</div>
+ -->
+
+<section id="vote-container">
+  <div class="container my-4 py-3 text-center">
+    <div class="row my-toprow">
+      <div class="col">
+        <h1>Votazione: {{ selectedVotation.title }}</h1>
+        <p class="rules" (click)="onShowRules()">
+          {{ !showRules ? "Apri" : "Chiudi" }} le regole da seguire per la
+          votazione:
+          <img
+            src="assets/icons/down.png"
+            alt="saf"
+            class="dropdown-img"
+            *ngIf="!showRules"
+          />
+          <img
+            src="assets/icons/up.png"
+            alt="saf"
+            class="dropdown-img"
+            *ngIf="showRules"
+          />
+        </p>
+
+        <ul *ngIf="showRules">
+          <li>È possibile votare <strong>un solo</strong> partito.</li>
+          <li>
+            Per votare è necessario fare un
+            <strong>doppio click (da PC)</strong> o
+            <strong>doppio tap (da mobile)</strong> sulla scheda del partito da
+            votare.
+          </li>
+          <li>
+            Una volta scelto il partito da votare, cliccare sul bottone
+            <strong>"Termina votazione"</strong>. A questo punto si aprià una
+            finestra in cui si potrà confermare la votazione o tornare indietro.
+            Tale bottone rimarrà <strong>disabilitato</strong> fino a che non si
+            avrà fatto una scelta.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6" *ngFor="let option of optionsArr">
+        <div class="card" (dblclick)="choisedCard()">
+          <div class="card-body">
+            <img
+              [src]="option.imgPath"
+              [alt]="option.name"
+              class="img-fluid rounded-circle w-75 mb-3"
+            />
+            <h3>{{ option.name }}</h3>
+            <p>Lorem Ipsum</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
