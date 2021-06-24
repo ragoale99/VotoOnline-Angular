@@ -22,6 +22,12 @@ export class AddVotazioneComponent implements OnInit {
       dateEnd: new FormControl(),
       card1: new FormControl(),
       card2: new FormControl(),
+      card3: new FormControl(),
+      card4: new FormControl(),
+      card5: new FormControl(),
+      card6: new FormControl(),
+      card7: new FormControl(),
+      card8: new FormControl(),
       cards: new FormArray([]),
     });
   }
@@ -49,6 +55,9 @@ export class AddVotazioneComponent implements OnInit {
     (<FormArray>this.votationForm.get('cards')).push(control);
   }
 
+  onDeleteCard(index: number) {
+    this.votationForm.get('cards').removeAt(index);
+  }
   checkCardsLength() {
     return this.votationForm.get('cards').controls.length >= 6;
   }

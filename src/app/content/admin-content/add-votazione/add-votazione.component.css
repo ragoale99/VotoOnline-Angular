@@ -38,4 +38,21 @@ textarea {
 .card-form {
   border: 1px solid #ccc;
   padding: 1em;
+  position: relative;
+}
+
+.close-button {
+  width: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+}
+
+.close-button:active {
+  transform: scale(1.2);
 }
