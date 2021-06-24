@@ -1,12 +1,14 @@
-<p>admin-content works!</p>
+<!-- INIZIO NOTIFICA -->
 <ngb-alert
   class="notifica"
   #staticAlert
   *ngIf="!staticAlertClosed"
-  (closed)="staticAlertClosed = true"
   type="success"
 >
   <strong>Ti sei autenticato correttamente!</strong>
   <hr />
   <p>Ora puoi creare una nuova votazione.</p>
 </ngb-alert>
+<!-- FINE NOTIFICA -->
+
+<app-add-votazione></app-add-votazione>

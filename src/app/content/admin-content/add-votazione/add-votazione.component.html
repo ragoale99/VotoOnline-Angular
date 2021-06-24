@@ -1,0 +1,134 @@
+<div class="container mt-4 text-center">
+  <h3><strong>Aggiungi una votazione</strong></h3>
+  <div class="row">
+    <div class="col-sm">
+      <form [formGroup]="votationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title">Titolo votazione</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            id="title"
+            formControlName="title"
+          />
+        </div>
+        <div class="form-group wrapper">
+          <label for="descrizone">Descrizione</label>
+          <textarea
+            class="form-control"
+            required
+            name="descrizone"
+            formControlName="descrizione"
+            maxlength="100"
+          ></textarea>
+          <span class="counter">{{
+            "max 100 chars: " +
+              votationForm.controls["descrizione"].value.length
+          }}</span>
+        </div>
+        <div class="form-group">
+          <label for="dateStart">Data di inizio votazione</label>
+          <input
+            type="date"
+            class="form-control"
+            required
+            formControlName="dateStart"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dateEnd">Data di fine votazione</label>
+          <input
+            type="date"
+            class="form-control"
+            required
+            formControlName="dateEnd"
+          />
+        </div>
+        <hr />
+        <div class="form-group card-form">
+          <h4>Carta 1</h4>
+          <label for="card1">Nome partito</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            formControlName="card1"
+          />
+          <!-- inserimento immagine con preview -->
+          <span style="color: red" *ngIf="message">{{ message }}</span>
+          <label
+            for="file-upload"
+            class="custom-file-upload btn btn-primary mt-3"
+          >
+            Carica immagine partito
+          </label>
+          <input
+            id="file-upload"
+            #file
+            type="file"
+            accept="image/*"
+            (change)="preview(file.files)"
+          />
+          <img [src]="imgURL" *ngIf="imgURL" class="rounded-circle preview" />
+
+          <!-- fine inserimento immagine con preview -->
+        </div>
+        <div class="form-group card-form">
+          <h4>Carta 2</h4>
+          <label for="card2">Nome partito</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            formControlName="card2"
+          />
+          <!-- inserimento immagine con preview -->
+          <span style="color: red" *ngIf="message">{{ message }}</span>
+          <label
+            for="file-upload"
+            class="custom-file-upload btn btn-primary mt-3"
+          >
+            Carica immagine partito
+          </label>
+          <input
+            id="file-upload"
+            #file
+            type="file"
+            accept="image/*"
+            (change)="preview(file.files)"
+          />
+          <img [src]="imgURL" *ngIf="imgURL" class="rounded-circle preview" />
+          <!-- fine inserimento immagine con preview -->
+        </div>
+        <div
+          class="form-group card-form"
+          *ngFor="
+            let hobbyControl of votationForm.get('cards')['controls'];
+            let i = index
+          "
+        >
+          <h4>Scelta {{ i + 3 }}</h4>
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="'Scelta' + (i + 3)"
+          />
+        </div>
+        <div formArrayName="cards">
+          <button
+            class="btn btn-primary mb-3"
+            type="button"
+            (click)="onAddCard()"
+            [disabled]="checkCardsLength()"
+          >
+            +
+          </button>
+        </div>
+        <button class="btn btn-primary" type="submit">
+          Aggiungi votazione
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

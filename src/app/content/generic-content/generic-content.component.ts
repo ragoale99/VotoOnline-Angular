@@ -1,7 +1,7 @@
 import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
 
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { Votation } from 'src/app/votation.model';
+import { Votation } from '../../votation.model';
 import { VoteService } from '../../vote.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,7 +27,10 @@ export class GenericContentComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.completedVotations = this.voteService.completedVotations();
     this.uncompletedVotations = this.voteService.uncompletedVotations();
-    setTimeout(() => this.staticAlert.close(), 4000);
+    setTimeout(() => {
+      this.staticAlertClosed = true;
+      this.staticAlert.close();
+    }, 4000);
   }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, DoCheck } from '@angular/core';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,13 +6,18 @@ import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './admin-content.component.html',
   styleUrls: ['./admin-content.component.css'],
 })
-export class AdminContentComponent implements OnInit {
+export class AdminContentComponent implements OnInit, DoCheck {
   staticAlertClosed = false;
 
   @ViewChild('staticAlert', { static: false })
   staticAlert!: NgbAlert;
 
   ngOnInit(): void {
-    setTimeout(() => this.staticAlert.close(), 4000);
+    setTimeout(() => {
+      this.staticAlertClosed = true;
+      return this.staticAlert.close();
+    }, 4000);
   }
+
+  ngDoCheck() {}
 }

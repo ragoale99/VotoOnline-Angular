@@ -1,0 +1,41 @@
+.preview {
+  height: 9em;
+  display: block;
+  margin: auto;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.wrapper {
+  position: relative;
+}
+
+textarea {
+  resize: none;
+}
+
+.counter {
+  font-size: 13px;
+  color: rgb(85, 85, 85);
+  position: absolute;
+  bottom: 1px;
+  right: 5px;
+}
+
+.container {
+  max-width: 45em;
+}
+
+.card-form {
+  border: 1px solid #ccc;
+  padding: 1em;
+}
