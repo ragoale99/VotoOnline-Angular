@@ -48,88 +48,105 @@
         <hr />
         <div class="form-group card-form">
           <h4>Carta 1</h4>
-          <label for="card1">Nome partito</label>
+          <label for="partito1">Nome partito</label>
           <input
             type="text"
             class="form-control"
             required
-            formControlName="card1"
+            formControlName="partito1"
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
           <label
-            for="file-upload"
-            class="custom-file-upload btn btn-primary mt-3"
+            for="partitoImg1"
+            class="custom-partitoImg btn btn-primary mt-3"
           >
             Carica immagine partito
           </label>
           <input
-            id="file-upload"
-            #file
+            formControlName="partitoImg1"
+            id="partitoImg1"
             type="file"
             accept="image/*"
-            (change)="preview(file.files)"
+            required
+            (change)="preview($event.target, 1)"
           />
-          <img [src]="imgURL" *ngIf="imgURL" class="rounded-circle preview" />
+          <img
+            [src]="imgURL[0]"
+            *ngIf="imgURL"
+            class="rounded-circle preview"
+            [ngClass]="imgURL[0] === undefined ? 'not-display' : ''"
+          />
           <!-- fine inserimento immagine con preview -->
         </div>
         <div class="form-group card-form">
           <h4>Carta 2</h4>
-          <label for="card2">Nome partito</label>
+          <label for="partito2">Nome partito</label>
           <input
             type="text"
             class="form-control"
             required
-            formControlName="card2"
+            formControlName="partito2"
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
           <label
-            for="file-upload"
-            class="custom-file-upload btn btn-primary mt-3"
+            for="partitoImg2"
+            class="custom-partitoImg btn btn-primary mt-3"
           >
             Carica immagine partito
           </label>
           <input
-            id="file-upload"
-            #file
+            formControlName="partitoImg2"
+            id="partitoImg2"
             type="file"
             accept="image/*"
-            (change)="preview(file.files)"
+            required
+            (change)="preview($event.target, 2)"
           />
-          <img [src]="imgURL" *ngIf="imgURL" class="rounded-circle preview" />
+          <img
+            [src]="imgURL[1]"
+            *ngIf="imgURL"
+            class="rounded-circle preview"
+            [ngClass]="imgURL[1] === undefined ? 'not-display' : ''"
+          />
           <!-- fine inserimento immagine con preview -->
         </div>
         <div
           class="form-group card-form"
           *ngFor="
-            let hobbyControl of votationForm.get('cards')['controls'];
+            let cardControl of votationForm.get('cards')['controls'];
             let i = index
           "
         >
-          <h4>Scelta {{ i + 3 }}</h4>
-          <label [for]="'card' + (i + 3)">Nome partito</label>
+          <h4>Carta {{ i + 3 }}</h4>
+          <label [for]="'partito' + (i + 3)">Nome partito</label>
           <input
             type="text"
             class="form-control"
-            [formControlName]="'card' + (i + 3)"
+            [formControlName]="'partito' + (i + 3)"
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
           <label
-            for="file-upload"
-            class="custom-file-upload btn btn-primary mt-3"
+            [for]="'partitoImg' + (i + 3)"
+            class="custom-partitoImg btn btn-primary mt-3"
           >
             Carica immagine partito
           </label>
           <input
-            id="file-upload"
-            #file
+            [formControlName]="'partitoImg' + (i + 3)"
+            [id]="'partitoImg' + (i + 3)"
             type="file"
             accept="image/*"
-            (change)="preview(file.files)"
+            (change)="preview($event.target, i + 3)"
           />
-          <img [src]="imgURL" *ngIf="imgURL" class="rounded-circle preview" />
+          <img
+            [src]="imgURL[i + 2]"
+            *ngIf="imgURL"
+            class="rounded-circle preview"
+            [ngClass]="imgURL[i + 2] === undefined ? 'not-display' : ''"
+          />
           <img
             src="assets/icons/close.png"
             alt=""
@@ -140,7 +157,7 @@
         </div>
         <div formArrayName="cards">
           <button
-            class="btn btn-primary mb-3"
+            class="btn btn-primary mb-3 add-button"
             type="button"
             (click)="onAddCard()"
             [disabled]="checkCardsLength()"
@@ -148,7 +165,11 @@
             +
           </button>
         </div>
-        <button class="btn btn-primary mb-5" type="submit">
+        <button
+          class="btn btn-primary mb-5"
+          type="submit"
+          [disabled]="!votationForm.valid"
+        >
           Aggiungi votazione
         </button>
       </form>

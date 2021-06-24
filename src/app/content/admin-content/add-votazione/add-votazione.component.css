@@ -56,3 +56,11 @@ textarea {
 .close-button:active {
   transform: scale(1.2);
 }
+
+.add-button {
+  font-weight: bold;
+}
+
+.not-display {
+  display: none;
+}
