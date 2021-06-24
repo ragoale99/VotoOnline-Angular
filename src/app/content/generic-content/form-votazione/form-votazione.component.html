@@ -76,6 +76,11 @@
         </div>
       </div>
     </div>
+    <div class="row" *ngIf="selectedCard !== undefined" class="text-center">
+      <p>
+        Stai votando: <strong>{{ "  " + selectedCard.name }}</strong>
+      </p>
+    </div>
     <div class="row">
       <div
         class="m-auto"
