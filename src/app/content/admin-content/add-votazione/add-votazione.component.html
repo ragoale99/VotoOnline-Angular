@@ -8,7 +8,6 @@
           <input
             type="text"
             class="form-control"
-            required
             id="title"
             formControlName="title"
           />
@@ -17,7 +16,6 @@
           <label for="descrizone">Descrizione</label>
           <textarea
             class="form-control"
-            required
             name="descrizone"
             formControlName="descrizione"
             maxlength="100"
@@ -29,32 +27,17 @@
         </div>
         <div class="form-group">
           <label for="dateStart">Data di inizio votazione</label>
-          <input
-            type="date"
-            class="form-control"
-            required
-            formControlName="dateStart"
-          />
+          <input type="date" class="form-control" formControlName="dateStart" />
         </div>
         <div class="form-group">
           <label for="dateEnd">Data di fine votazione</label>
-          <input
-            type="date"
-            class="form-control"
-            required
-            formControlName="dateEnd"
-          />
+          <input type="date" class="form-control" formControlName="dateEnd" />
         </div>
         <hr />
         <div class="form-group card-form">
           <h4>Carta 1</h4>
           <label for="partito1">Nome partito</label>
-          <input
-            type="text"
-            class="form-control"
-            required
-            formControlName="partito1"
-          />
+          <input type="text" class="form-control" formControlName="partito1" />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
           <label
@@ -68,7 +51,6 @@
             id="partitoImg1"
             type="file"
             accept="image/*"
-            required
             (change)="preview($event.target, 1)"
           />
           <img
@@ -82,12 +64,7 @@
         <div class="form-group card-form">
           <h4>Carta 2</h4>
           <label for="partito2">Nome partito</label>
-          <input
-            type="text"
-            class="form-control"
-            required
-            formControlName="partito2"
-          />
+          <input type="text" class="form-control" formControlName="partito2" />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
           <label
@@ -101,7 +78,6 @@
             id="partitoImg2"
             type="file"
             accept="image/*"
-            required
             (change)="preview($event.target, 2)"
           />
           <img
@@ -112,64 +88,68 @@
           />
           <!-- fine inserimento immagine con preview -->
         </div>
-        <div
-          class="form-group card-form"
-          *ngFor="
-            let cardControl of votationForm.get('cards')['controls'];
-            let i = index
-          "
-        >
-          <h4>Carta {{ i + 3 }}</h4>
-          <label [for]="'partito' + (i + 3)">Nome partito</label>
-          <input
-            type="text"
-            class="form-control"
-            [formControlName]="'partito' + (i + 3)"
-          />
-          <!-- inserimento immagine con preview -->
-          <span style="color: red" *ngIf="message">{{ message }}</span>
-          <label
-            [for]="'partitoImg' + (i + 3)"
-            class="custom-partitoImg btn btn-primary mt-3"
+
+        <ng-container formArrayName="cards">
+          <div
+            class="form-group card-form"
+            *ngFor="
+              let cardControl of votationForm.get('cards')['controls'];
+              let i = index
+            "
           >
-            Carica immagine partito
-          </label>
-          <input
-            [formControlName]="'partitoImg' + (i + 3)"
-            [id]="'partitoImg' + (i + 3)"
-            type="file"
-            accept="image/*"
-            (change)="preview($event.target, i + 3)"
-          />
-          <img
-            [src]="imgURL[i + 2]"
-            *ngIf="imgURL"
-            class="rounded-circle preview"
-            [ngClass]="imgURL[i + 2] === undefined ? 'not-display' : ''"
-          />
-          <img
-            src="assets/icons/close.png"
-            alt=""
-            class="close-button"
-            (click)="onDeleteCard(i)"
-          />
-          <!-- fine inserimento immagine con preview -->
-        </div>
-        <div formArrayName="cards">
-          <button
-            class="btn btn-primary mb-3 add-button"
-            type="button"
-            (click)="onAddCard()"
-            [disabled]="checkCardsLength()"
-          >
-            +
-          </button>
-        </div>
-        <button
-          class="btn btn-primary mb-5"
-          type="submit"
-          [disabled]="!votationForm.valid"
-        >
+            <h4>Carta {{ i + 3 }}</h4>
+            <ng-container [formGroupName]="i">
+              <label for="partito">Nome partito</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="partito"
+              />
+              <!-- inserimento immagine con preview -->
+              <span style="color: red" *ngIf="message">{{ message }}</span>
+              <label
+                for="partitoImg"
+                class="custom-partitoImg btn btn-primary mt-3"
+              >
+                Carica immagine partito
+              </label>
+              <input
+                formControlName="partitoImg"
+                id="partitoImg"
+                type="file"
+                accept="image/*"
+                (change)="preview($event.target, i + 3)"
+              />
+              <!-- fine inserimento immagine con preview -->
+              <img
+                [src]="imgURL[i + 2]"
+                *ngIf="imgURL"
+                class="rounded-circle preview"
+                [ngClass]="imgURL[i + 2] === undefined ? 'not-display' : ''"
+              />
+            </ng-container>
+
+            <img
+              src="assets/icons/close.png"
+              alt=""
+              class="close-button"
+              (click)="onDeleteCard(i)"
+            />
+            <!-- fine inserimento immagine con preview -->
+          </div>
+          <div>
+            <button
+              class="btn btn-primary mb-3 add-button"
+              type="button"
+              (click)="onAddCard()"
+              [disabled]="checkCardsLength()"
+            >
+              +
+            </button>
+          </div>
+        </ng-container>
+
+        <button class="btn btn-primary mb-5" type="submit">
           Aggiungi votazione
         </button>
       </form>

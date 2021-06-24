@@ -23,20 +23,8 @@ export class AddVotazioneComponent implements OnInit {
       dateEnd: new FormControl(),
       partito1: new FormControl(),
       partito2: new FormControl(),
-      partito3: new FormControl(),
-      partito4: new FormControl(),
-      partito5: new FormControl(),
-      partito6: new FormControl(),
-      partito7: new FormControl(),
-      partito8: new FormControl(),
       partitoImg1: new FormControl(),
       partitoImg2: new FormControl(),
-      partitoImg3: new FormControl(),
-      partitoImg4: new FormControl(),
-      partitoImg5: new FormControl(),
-      partitoImg6: new FormControl(),
-      partitoImg7: new FormControl(),
-      partitoImg8: new FormControl(),
       cards: new FormArray([]),
     });
   }
@@ -59,8 +47,14 @@ export class AddVotazioneComponent implements OnInit {
   }
 
   onAddCard() {
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.votationForm.get('cards')).push(control);
+    const group = new FormGroup({
+      partito: new FormControl(null),
+      partitoImg: new FormControl(null),
+    });
+
+    (<FormArray>this.votationForm.get('cards')).push(group);
+    /*     const control = new FormControl(null);
+    (<FormArray>this.votationForm.get('cards')).push(control); */
   }
 
   onDeleteCard(index: number) {
