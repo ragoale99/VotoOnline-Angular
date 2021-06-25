@@ -157,13 +157,23 @@
           </div>
         </ng-container>
 
-        <button
-          class="btn btn-primary mb-5"
-          type="submit"
-          [disabled]="!votationForm.valid"
+        <div
+          class="m-auto"
+          placement="top"
+          [ngbTooltip]="
+            !votationForm.valid
+              ? 'Bottone disabilitato. Controlla ceh tutti i campi siano riempiti!'
+              : ''
+          "
         >
-          Aggiungi votazione
-        </button>
+          <button
+            class="btn btn-primary mb-5"
+            type="submit"
+            [disabled]="!votationForm.valid"
+          >
+            Aggiungi votazione
+          </button>
+        </div>
       </form>
     </div>
   </div>

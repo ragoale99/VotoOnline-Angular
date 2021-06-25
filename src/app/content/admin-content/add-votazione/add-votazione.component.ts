@@ -44,7 +44,6 @@ export class AddVotazioneComponent implements OnInit {
     reader.onload = (_event) => {
       this.imgURL.splice(index, 1, reader.result);
     };
-    console.log(this.imagePath, this.imgURL);
   }
 
   onAddCard() {
@@ -56,14 +55,12 @@ export class AddVotazioneComponent implements OnInit {
     (<FormArray>this.votationForm.get('cards')).push(group);
     this.imgURL.push('');
     this.imagePath.push('');
-    console.log(this.imagePath, this.imgURL);
   }
 
   onDeleteCard(index: number) {
     this.votationForm.get('cards').removeAt(index);
     this.imgURL.splice(index + 2, 1);
     this.imagePath.splice(index + 2, 1);
-    console.log(this.imagePath, this.imgURL);
   }
 
   checkCardsLength() {
