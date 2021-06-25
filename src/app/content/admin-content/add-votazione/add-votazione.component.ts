@@ -30,6 +30,7 @@ export class AddVotazioneComponent implements OnInit {
   }
 
   preview(e: any, index: number): void {
+    console.log(e);
     let files = e.files;
     if (files.length === 0) return;
     var mimeType = files[0].type;

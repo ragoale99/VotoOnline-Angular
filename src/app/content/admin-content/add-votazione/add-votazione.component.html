@@ -40,10 +40,7 @@
           <input type="text" class="form-control" formControlName="partito1" />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
-          <label
-            for="partitoImg1"
-            class="custom-partitoImg btn btn-primary mt-3"
-          >
+          <label for="partitoImg1" class="custom btn btn-primary mt-3">
             Carica immagine partito
           </label>
           <input
@@ -67,10 +64,7 @@
           <input type="text" class="form-control" formControlName="partito2" />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
-          <label
-            for="partitoImg2"
-            class="custom-partitoImg btn btn-primary mt-3"
-          >
+          <label for="partitoImg2" class="custom btn btn-primary mt-3">
             Carica immagine partito
           </label>
           <input
@@ -93,7 +87,7 @@
           <div
             class="form-group card-form"
             *ngFor="
-              let cardControl of votationForm.get('cards')['controls'];
+              let cardControl of votationForm.get('cards').controls;
               let i = index
             "
           >
@@ -107,10 +101,7 @@
               />
               <!-- inserimento immagine con preview -->
               <span style="color: red" *ngIf="message">{{ message }}</span>
-              <label
-                for="partitoImg"
-                class="custom-partitoImg btn btn-primary mt-3"
-              >
+              <label for="partitoImg" class="custom btn btn-primary mt-3">
                 Carica immagine partito
               </label>
               <input
