@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,8 +7,8 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-votazione.component.css'],
 })
 export class AddVotazioneComponent implements OnInit {
-  imagePath: any[] = [];
-  imgURL: any[] = [];
+  imagePath: any[] = ['', ''];
+  imgURL: any[] = ['', ''];
 
   message!: string;
   desc: string = '';
@@ -30,7 +30,6 @@ export class AddVotazioneComponent implements OnInit {
   }
 
   preview(e: any, index: number): void {
-    console.log(e);
     let files = e.files;
     if (files.length === 0) return;
     var mimeType = files[0].type;
@@ -40,25 +39,31 @@ export class AddVotazioneComponent implements OnInit {
     }
 
     var reader = new FileReader();
-    this.imagePath.splice(index - 1, 1, files);
+    this.imagePath.splice(index, 1, files);
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.imgURL.splice(index - 1, 1, reader.result);
+      this.imgURL.splice(index, 1, reader.result);
     };
-    console.log(this.votationForm.get('cards')['controls']);
+    console.log(this.imagePath, this.imgURL);
   }
 
   onAddCard() {
     const group = new FormGroup({
-      partito: new FormControl(null),
-      partitoImg: new FormControl(null),
+      partito: new FormControl(null, Validators.required),
+      partitoImg: new FormControl(null, Validators.required),
     });
 
     (<FormArray>this.votationForm.get('cards')).push(group);
+    this.imgURL.push('');
+    this.imagePath.push('');
+    console.log(this.imagePath, this.imgURL);
   }
 
   onDeleteCard(index: number) {
     this.votationForm.get('cards').removeAt(index);
+    this.imgURL.splice(index + 2, 1);
+    this.imagePath.splice(index + 2, 1);
+    console.log(this.imagePath, this.imgURL);
   }
 
   checkCardsLength() {
