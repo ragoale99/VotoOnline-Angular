@@ -37,12 +37,13 @@
         <div class="form-group card-form">
           <h4>Carta 1</h4>
           <label for="partito1">Nome partito</label>
-          <input type="text" class="form-control" formControlName="partito1" />
+          <input
+            type="text"
+            class="form-control mb-3"
+            formControlName="partito1"
+          />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
-          <label for="partitoImg1" class="custom btn btn-primary mt-3">
-            Carica immagine partito
-          </label>
           <input
             formControlName="partitoImg1"
             id="partitoImg1"
@@ -61,12 +62,13 @@
         <div class="form-group card-form">
           <h4>Carta 2</h4>
           <label for="partito2">Nome partito</label>
-          <input type="text" class="form-control" formControlName="partito2" />
+          <input
+            type="text"
+            class="form-control mb-3"
+            formControlName="partito2"
+          />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
-          <label for="partitoImg2" class="custom btn btn-primary mt-3">
-            Carica immagine partito
-          </label>
           <input
             formControlName="partitoImg2"
             id="partitoImg2"
@@ -96,14 +98,11 @@
               <label for="partito">Nome partito</label>
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-3"
                 formControlName="partito"
               />
               <!-- inserimento immagine con preview -->
               <span style="color: red" *ngIf="message">{{ message }}</span>
-              <label for="partitoImg" class="custom btn btn-primary mt-3">
-                Carica immagine partito
-              </label>
               <input
                 formControlName="partitoImg"
                 id="partitoImg"
