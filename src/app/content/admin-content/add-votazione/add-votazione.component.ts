@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { VoteService } from 'src/app/vote.service';
+import { Votation } from 'src/app/votation.model';
+import { VoteCard } from 'src/app/vote-card.model';
 
 @Component({
   selector: 'app-add-votazione',
@@ -13,7 +16,7 @@ export class AddVotazioneComponent implements OnInit {
   message!: string;
   desc: string = '';
   votationForm: any;
-  constructor() {}
+  constructor(private voteService: VoteService) {}
 
   ngOnInit(): void {
     this.votationForm = new FormGroup({
@@ -68,10 +71,26 @@ export class AddVotazioneComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.votationForm);
-    /*     this.votationForm.reset();
+    var path1 = 'assets/images/' + this.imagePath[0][0].name;
+    var path2 = 'assets/images/' + this.imagePath[1][0].name;
+    console.log(path1, path2);
+    this.voteService.addVotation(
+      new Votation(
+        this.votationForm.get('title').value,
+        this.votationForm.get('descrizione').value,
+        this.votationForm.get('dateStart').value,
+        this.votationForm.get('dateEnd').value,
+        false,
+        '',
+        new VoteCard(path1, this.votationForm.get('partito1').value),
+        new VoteCard(path2, this.votationForm.get('partito2').value)
+      )
+    );
+
+    console.log(this.voteService.getVotations());
+    this.votationForm.reset();
     this.votationForm.patchValue({
       descrizione: '',
-    }); */
+    });
   }
 }

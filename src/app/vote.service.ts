@@ -70,6 +70,10 @@ export class VoteService {
     return this.votations.slice();
   }
 
+  addVotation(votation: Votation) {
+    this.votations.push(votation);
+  }
+
   uncompletedVotations() {
     return this.votations.filter((votation) => {
       return votation.voted === false;

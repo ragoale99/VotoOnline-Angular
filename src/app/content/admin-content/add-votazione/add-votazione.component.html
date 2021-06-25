@@ -8,7 +8,6 @@
           <input
             type="text"
             class="form-control"
-            required
             id="title"
             formControlName="title"
           />
@@ -18,7 +17,6 @@
           <textarea
             class="form-control"
             name="descrizone"
-            required
             formControlName="descrizione"
             maxlength="100"
           ></textarea>
@@ -29,21 +27,11 @@
         </div>
         <div class="form-group">
           <label for="dateStart">Data di inizio votazione</label>
-          <input
-            type="date"
-            class="form-control"
-            formControlName="dateStart"
-            required
-          />
+          <input type="date" class="form-control" formControlName="dateStart" />
         </div>
         <div class="form-group">
           <label for="dateEnd">Data di fine votazione</label>
-          <input
-            type="date"
-            class="form-control"
-            formControlName="dateEnd"
-            required
-          />
+          <input type="date" class="form-control" formControlName="dateEnd" />
         </div>
         <hr />
         <div class="form-group card-form">
@@ -52,7 +40,6 @@
           <input
             type="text"
             class="form-control mb-3"
-            required
             formControlName="partito1"
           />
           <!-- inserimento immagine con preview -->
@@ -61,7 +48,6 @@
             formControlName="partitoImg1"
             id="partitoImg1"
             type="file"
-            required
             accept="image/*"
             (change)="preview($event.target, 0)"
           />
@@ -80,7 +66,6 @@
             type="text"
             class="form-control mb-3"
             formControlName="partito2"
-            required
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
@@ -88,7 +73,6 @@
             formControlName="partitoImg2"
             id="partitoImg2"
             type="file"
-            required
             accept="image/*"
             (change)="preview($event.target, 1)"
           />
@@ -116,7 +100,6 @@
                 type="text"
                 class="form-control mb-3"
                 formControlName="partito"
-                required
               />
               <!-- inserimento immagine con preview -->
               <span style="color: red" *ngIf="message">{{ message }}</span>
@@ -124,7 +107,6 @@
                 formControlName="partitoImg"
                 id="partitoImg"
                 type="file"
-                required
                 accept="image/*"
                 (change)="preview($event.target, i + 2)"
               />

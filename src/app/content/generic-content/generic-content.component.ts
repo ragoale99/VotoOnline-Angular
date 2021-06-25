@@ -1,5 +1,4 @@
 import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
-
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { Votation } from '../../votation.model';
 import { VoteService } from '../../vote.service';
@@ -10,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './generic-content.component.html',
   styleUrls: ['./generic-content.component.css'],
 })
-export class GenericContentComponent implements OnInit, DoCheck {
+export class GenericContentComponent implements OnInit {
   startVotation = false;
   staticAlertClosed = false;
   selectedVotation!: Votation;
@@ -24,19 +23,13 @@ export class GenericContentComponent implements OnInit, DoCheck {
   @ViewChild('staticAlert', { static: false })
   staticAlert!: NgbAlert;
 
-  ngDoCheck() {
+  ngOnInit(): void {
     this.completedVotations = this.voteService.completedVotations();
     this.uncompletedVotations = this.voteService.uncompletedVotations();
     setTimeout(() => {
       this.staticAlertClosed = true;
       this.staticAlert.close();
     }, 4000);
-  }
-
-  ngOnInit(): void {
-    /*     this.completedVotations = this.voteService.completedVotations();
-    this.uncompletedVotations = this.voteService.uncompletedVotations();
-    console.log('ciao'); */
   }
 
   openModal(content: any, votation: Votation) {
