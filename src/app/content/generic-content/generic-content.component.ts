@@ -40,4 +40,8 @@ export class GenericContentComponent implements OnInit {
   openVotation() {
     this.startVotation = true;
   }
+
+  checkDataStart(data: Date) {
+    return data <= new Date();
+  }
 }

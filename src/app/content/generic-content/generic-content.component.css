@@ -13,22 +13,21 @@
   background-color: rgba(139, 139, 139, 0.637);
 }
 
-.my-row,
-.my-row-clickable {
+.my-row {
   min-height: 2.5em;
   text-align: center;
 }
-.my-row-clickable {
+.clickable {
   cursor: pointer;
 }
 
 @media (min-width: 580px) {
-  .my-row-clickable:hover {
+  .clickable:hover {
     transform: scale(1.03);
     transition: all 0.3s;
   }
 
-  .my-row-clickable:active {
+  .clickable:active {
     transform: scale(1);
     transition: all 0.3s;
   }
@@ -42,9 +41,14 @@
   background-color: rgba(224, 211, 211, 0.897);
 }
 
+.bolded {
+  font-weight: bold;
+  color: rgb(131, 24, 24);
+  margin-bottom: 0.3em;
+}
+
 @media (max-width: 768px) {
-  .my-row,
-  .my-row-clickable {
+  .my-row {
     font-size: 14px;
   }
 
