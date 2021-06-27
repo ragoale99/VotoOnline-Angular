@@ -73,7 +73,6 @@ export class AddVotazioneComponent implements OnInit {
   onSubmit() {
     var path1 = 'assets/images/' + this.imagePath[0][0].name;
     var path2 = 'assets/images/' + this.imagePath[1][0].name;
-    console.log(path1, path2);
     this.voteService.addVotation(
       new Votation(
         this.votationForm.get('title').value,
@@ -87,7 +86,11 @@ export class AddVotazioneComponent implements OnInit {
       )
     );
 
-    console.log(this.voteService.getVotations());
+    this.imgURL = ['', ''];
+    this.imagePath = ['', ''];
+    for (let i = 0; this.votationForm.get('cards').controls.length; i++) {
+      this.votationForm.get('cards').removeAt(0);
+    }
     this.votationForm.reset();
     this.votationForm.patchValue({
       descrizione: '',

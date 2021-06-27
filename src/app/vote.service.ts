@@ -25,7 +25,7 @@ export class VoteService {
     new Votation(
       'Regionali',
       'bruttissima votazione',
-      this.today,
+      new Date('2020, 04, 10'),
       this.tomorrow,
       false,
       '',

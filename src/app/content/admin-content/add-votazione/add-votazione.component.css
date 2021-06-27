@@ -60,3 +60,7 @@ textarea {
 .not-display {
   display: none;
 }
+
+.tooltip {
+  width: 50%;
+}

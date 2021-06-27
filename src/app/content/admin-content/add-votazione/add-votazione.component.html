@@ -127,11 +127,21 @@
             />
             <!-- fine inserimento immagine con preview -->
           </div>
-          <div>
+          <div
+            class="m-auto"
+            placement="top"
+            style="width: 10%"
+            [ngbTooltip]="
+              checkCardsLength()
+                ? 'Sono già state inserite 8 carte di voto!'
+                : ''
+            "
+          >
             <button
               class="btn btn-primary mb-3 add-button"
               type="button"
               (click)="onAddCard()"
+              [ngStyle]="{ cursor: checkCardsLength() ? 'not-allowed' : '' }"
               [disabled]="checkCardsLength()"
             >
               +
@@ -141,6 +151,7 @@
 
         <div
           class="m-auto"
+          style="width: 30%"
           placement="top"
           [ngbTooltip]="
             !votationForm.valid
@@ -151,6 +162,7 @@
           <button
             class="btn btn-primary mb-5"
             type="submit"
+            [ngStyle]="{ cursor: !votationForm.valid ? 'not-allowed' : '' }"
             [disabled]="!votationForm.valid"
           >
             Aggiungi votazione
