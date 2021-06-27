@@ -77,7 +77,8 @@ export class VoteService {
   uncompletedVotations() {
     var today = new Date();
     return this.votations.filter((votation) => {
-      return votation.voted === false && today <= votation.dataEnd;
+      const dateEnd = new Date(votation.dataEnd);
+      return votation.voted === false && today <= dateEnd;
     });
   }
 
