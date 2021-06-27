@@ -43,7 +43,6 @@ export class GenericContentComponent implements OnInit {
 
   checkDataStart(data: Date) {
     console.log(data);
-    console.log(new Date());
-    return data <= new Date();
+    return data.getTime() <= new Date().getTime();
   }
 }
