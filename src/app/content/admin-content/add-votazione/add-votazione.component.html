@@ -9,6 +9,7 @@
             type="text"
             class="form-control"
             id="title"
+            required
             formControlName="title"
           />
         </div>
@@ -19,6 +20,7 @@
             name="descrizone"
             formControlName="descrizione"
             maxlength="100"
+            required
           ></textarea>
           <span class="counter">{{
             "max 100 chars: " +
@@ -27,11 +29,21 @@
         </div>
         <div class="form-group">
           <label for="dateStart">Data di inizio votazione</label>
-          <input type="date" class="form-control" formControlName="dateStart" />
+          <input
+            type="date"
+            class="form-control"
+            formControlName="dateStart"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="dateEnd">Data di fine votazione</label>
-          <input type="date" class="form-control" formControlName="dateEnd" />
+          <input
+            type="date"
+            class="form-control"
+            formControlName="dateEnd"
+            required
+          />
         </div>
         <hr />
         <div class="form-group card-form">
@@ -41,6 +53,7 @@
             type="text"
             class="form-control mb-3"
             formControlName="partito1"
+            required
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
@@ -50,6 +63,7 @@
             type="file"
             accept="image/*"
             (change)="preview($event.target, 0)"
+            required
           />
           <img
             [src]="imgURL[0]"
@@ -66,6 +80,7 @@
             type="text"
             class="form-control mb-3"
             formControlName="partito2"
+            required
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
@@ -75,6 +90,7 @@
             type="file"
             accept="image/*"
             (change)="preview($event.target, 1)"
+            required
           />
           <img
             [src]="imgURL[1]"

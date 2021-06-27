@@ -16,21 +16,16 @@
 .my-row {
   min-height: 2.5em;
   text-align: center;
+  padding: 0.2em;
 }
 .clickable {
   cursor: pointer;
 }
 
-@media (min-width: 580px) {
-  .clickable:hover {
-    transform: scale(1.03);
-    transition: all 0.3s;
-  }
-
-  .clickable:active {
-    transform: scale(1);
-    transition: all 0.3s;
-  }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dark {
@@ -45,6 +40,18 @@
   font-weight: bold;
   color: rgb(131, 24, 24);
   margin-bottom: 0.3em;
+}
+
+@media (min-width: 580px) {
+  .clickable:hover {
+    transform: scale(1.03);
+    transition: all 0.3s;
+  }
+
+  .clickable:active {
+    transform: scale(1);
+    transition: all 0.3s;
+  }
 }
 
 @media (max-width: 768px) {
