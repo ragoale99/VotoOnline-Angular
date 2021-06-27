@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { VoteService } from 'src/app/vote.service';
 import { Votation } from 'src/app/votation.model';
 import { VoteCard } from 'src/app/vote-card.model';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-votazione',
@@ -17,6 +18,10 @@ export class AddVotazioneComponent implements OnInit {
   desc: string = '';
   votationForm: any;
   constructor(private voteService: VoteService) {}
+
+  staticAlertClosed = true;
+  @ViewChild('staticAlert', { static: false })
+  staticAlert!: NgbAlert;
 
   ngOnInit(): void {
     this.votationForm = new FormGroup({
@@ -95,5 +100,10 @@ export class AddVotazioneComponent implements OnInit {
     this.votationForm.patchValue({
       descrizione: '',
     });
+    this.staticAlertClosed = false;
+    setTimeout(() => {
+      this.staticAlertClosed = true;
+      this.staticAlert.close();
+    }, 4000);
   }
 }

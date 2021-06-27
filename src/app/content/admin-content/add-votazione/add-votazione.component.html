@@ -172,3 +172,16 @@
     </div>
   </div>
 </div>
+
+<!-- INIZIO NOTIFICA VOTAZIONE AGGIUNTA -->
+<ngb-alert
+  class="notifica"
+  #staticAlert
+  *ngIf="!staticAlertClosed"
+  type="success"
+>
+  <strong>Votazione aggiunta correttamente!</strong>
+  <hr />
+  <p>Ora puoi crearne un'altra o effettuare il log out.</p>
+</ngb-alert>
+<!-- FINE NOTIFICA VOTAZIONE AGGIUNTA -->
