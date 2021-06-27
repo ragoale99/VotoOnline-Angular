@@ -10,11 +10,6 @@ export class Votation {
     public result: string,
     public option1: VoteCard,
     public option2: VoteCard,
-    public option3?: VoteCard,
-    public option4?: VoteCard,
-    public option5?: VoteCard,
-    public option6?: VoteCard,
-    public option7?: VoteCard,
-    public option8?: VoteCard
+    public otherOptions?: VoteCard[]
   ) {}
 }

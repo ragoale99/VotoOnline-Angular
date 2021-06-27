@@ -31,15 +31,23 @@ export class VoteService {
       '',
       new VoteCard('assets/images/lega.jpg', 'Lega Nord'),
       new VoteCard('assets/images/berla.jpg', 'Forza Italia'),
-      new VoteCard('assets/images/movimento5stelle.jpg', 'Movimento 5 stelle'),
-      new VoteCard('assets/images/noi_per_il_futuro.jpg', 'Noi per il futuro'),
-      new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al popolo!'),
-      new VoteCard(
-        'assets/images/giovani_democratici.png',
-        'Giovani democratici'
-      ),
-      new VoteCard('assets/images/italia_viva.png', 'Italia Viva'),
-      new VoteCard('assets/images/fratelli_italia.png', "Fratelli d'Italia")
+      [
+        new VoteCard(
+          'assets/images/movimento5stelle.jpg',
+          'Movimento 5 stelle'
+        ),
+        new VoteCard(
+          'assets/images/noi_per_il_futuro.jpg',
+          'Noi per il futuro'
+        ),
+        new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al popolo!'),
+        new VoteCard(
+          'assets/images/giovani_democratici.png',
+          'Giovani democratici'
+        ),
+        new VoteCard('assets/images/italia_viva.png', 'Italia Viva'),
+        new VoteCard('assets/images/fratelli_italia.png', "Fratelli d'Italia"),
+      ]
     ),
     new Votation(
       'Europee',
@@ -60,7 +68,7 @@ export class VoteService {
       '',
       new VoteCard('assets/images/noi_per_il_futuro.jpg', 'Noi per il futuro'),
       new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al Popolo!'),
-      new VoteCard('assets/images/cambiamo.png', 'Cambiamo!	')
+      [new VoteCard('assets/images/cambiamo.png', 'Cambiamo!	')]
     ),
   ];
 

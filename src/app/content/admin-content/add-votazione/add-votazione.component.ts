@@ -76,8 +76,18 @@ export class AddVotazioneComponent implements OnInit {
   }
 
   onSubmit() {
+    const arrayControls = this.votationForm.get('cards') as FormArray;
+    let voteCards = [];
+
+    for (let i = 0; i < arrayControls.controls.length; i++) {
+      const path = 'assets/images/' + this.imagePath[i + 2][0].name;
+      const card = new VoteCard(path, arrayControls.at(i).value.partito);
+      voteCards.push(card);
+    }
+
     var path1 = 'assets/images/' + this.imagePath[0][0].name;
     var path2 = 'assets/images/' + this.imagePath[1][0].name;
+
     this.voteService.addVotation(
       new Votation(
         this.votationForm.get('title').value,
@@ -87,7 +97,8 @@ export class AddVotazioneComponent implements OnInit {
         false,
         '',
         new VoteCard(path1, this.votationForm.get('partito1').value),
-        new VoteCard(path2, this.votationForm.get('partito2').value)
+        new VoteCard(path2, this.votationForm.get('partito2').value),
+        voteCards
       )
     );
     console.log(this.voteService.getVotations());
@@ -96,10 +107,7 @@ export class AddVotazioneComponent implements OnInit {
     for (let i = 0; this.votationForm.get('cards').controls.length; i++) {
       this.votationForm.get('cards').removeAt(0);
     }
-    this.votationForm.reset();
-    this.votationForm.patchValue({
-      descrizione: '',
-    });
+
     this.staticAlertClosed = false;
     setTimeout(() => {
       this.staticAlertClosed = true;
