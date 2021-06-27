@@ -90,7 +90,7 @@ export class AddVotazioneComponent implements OnInit {
         new VoteCard(path2, this.votationForm.get('partito2').value)
       )
     );
-
+    console.log(this.voteService.getVotations());
     this.imgURL = ['', ''];
     this.imagePath = ['', ''];
     for (let i = 0; this.votationForm.get('cards').controls.length; i++) {
