@@ -42,7 +42,8 @@ export class GenericContentComponent implements OnInit {
   }
 
   checkDataStart(data: Date) {
-    console.log(data);
-    return data.getTime() <= new Date().getTime();
+    const today = new Date();
+    const date = new Date(data);
+    return date.getTime() <= today.getTime();
   }
 }
