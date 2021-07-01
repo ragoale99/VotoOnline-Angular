@@ -7,6 +7,7 @@
   height: 3em;
   width: 100%;
   background-color: rgb(224, 133, 105);
+  box-shadow: 3px 3px 3px rgba(224, 133, 105, 0.616);
 }
 
 .last {
