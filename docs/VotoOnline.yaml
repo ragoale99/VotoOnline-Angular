@@ -189,9 +189,11 @@ components:
           examples:
             admin:
               value:
+                userId: 0
                 role: admin
             genericUser:
               value:
+                userId: 1
                 role: genericUser
 tags:
   - name: login
