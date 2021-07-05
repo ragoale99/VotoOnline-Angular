@@ -31,12 +31,8 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                user:
-                  $ref: '#/components/schemas/User'
-              required:
-                - user
+              $ref: '#/components/schemas/User'
+            examples: {}
         description: 'La richiesta di login contiene nel body la mail e la passaword dell''utente '
   /votations:
     get:
@@ -45,13 +41,20 @@ paths:
         - votations
       responses:
         '200':
-          $ref: '#/components/responses/getVotationsResponse'
+          description: OK
         '404':
           description: Not Found
         '500':
           description: Internal Server Error
       operationId: get-votations
       description: 'Richiesta di tutte le votazioni '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Votation'
     post:
       summary: ''
       operationId: post-votations
@@ -69,12 +72,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                votation:
-                  $ref: '#/components/schemas/Votation'
-              required:
-                - votation
+              $ref: '#/components/schemas/Votation'
             examples: {}
         description: La richiesta contiene nel body la votazione da aggiungere
     put:
@@ -94,13 +92,10 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                votation:
-                  $ref: '#/components/schemas/Votation'
-              required:
-                - votation
+              $ref: '#/components/schemas/Votation'
         description: 'La richiesta contine nel body la votazione completata dall''utente, su cui sono state apportate le modifiche ai campi ''voted'' e ''result'''
+      parameters: []
+    parameters: []
 components:
   schemas:
     Votation:
@@ -129,14 +124,11 @@ components:
           type: string
           default: ''''''
           description: Stringa contenente il risualto della votazione (se voted === false => result === '')
-        card1:
-          $ref: '#/components/schemas/VoteCard'
-        card2:
-          $ref: '#/components/schemas/VoteCard'
-        otherCards:
+        cards:
           type: array
-          maxItems: 6
-          description: Array contente al massimo altre 6 cards per la votazione
+          maxItems: 8
+          description: Array contente tutte le scelte per la votazione
+          minItems: 2
           items:
             $ref: '#/components/schemas/VoteCard'
       required:
@@ -146,8 +138,7 @@ components:
         - dateEnd
         - voted
         - result
-        - card1
-        - card2
+        - cards
     VoteCard:
       title: VoteCard
       type: object
@@ -184,6 +175,8 @@ components:
           schema:
             type: object
             properties:
+              userId:
+                type: number
               role:
                 type: string
                 description: 'Viene ritornato il ruolo dell''utente che sta eseguendo il login: admin o genericUser'
@@ -191,6 +184,7 @@ components:
                   - admin
                   - genericUser
             required:
+              - userId
               - role
           examples:
             admin:
@@ -199,20 +193,6 @@ components:
             genericUser:
               value:
                 role: genericUser
-    getVotationsResponse:
-      description: Example response
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              votations:
-                type: array
-                description: Array con tutte le votazioni presenti nel sistema
-                items:
-                  $ref: '#/components/schemas/Votation'
-            required:
-              - votations
 tags:
   - name: login
   - name: votations
