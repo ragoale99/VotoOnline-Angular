@@ -13,14 +13,14 @@ export class VoteService {
   tomorrow = new Date(this.today.setDate(this.today.getDate() + 1));
   votations: Votation[] = [
     new Votation(
-      'Comunali',
-      'bellissima votazione',
+      'Piatti italiani',
+      'Votazione per il piatto italiano più buono',
       this.today,
       this.tomorrow,
       true,
-      'partito democristiano',
-      new VoteCard('ciao', 'patito democratico'),
-      new VoteCard('ciaone', 'patito democristiano')
+      'Pizza',
+      new VoteCard('ciao', 'poenta e osei'),
+      new VoteCard('ciao', 'pizza')
     ),
     new Votation(
       'Frameworks	',
@@ -35,7 +35,7 @@ export class VoteService {
     ),
     new Votation(
       'Cani',
-      'Votazione per la scelta del cane più bello',
+      'Votazione per il cane più bello',
       new Date('2020, 04, 10'),
       this.tomorrow,
       false,
@@ -52,20 +52,20 @@ export class VoteService {
       ]
     ),
     new Votation(
-      'Europee',
-      'che schifo di votazione',
+      'Gatti',
+      'Votazione per il gatto più bello',
       this.today,
       this.tomorrow,
       true,
-      '5 stelle',
-      new VoteCard('ciao', '5 stelle'),
-      new VoteCard('ciaone', 'forza italia'),
+      'Persiano',
+      new VoteCard('ciao', 'Periano'),
+      new VoteCard('ciaone', 'Gattino'),
       []
     ),
     new Votation(
-      'Comunali',
-      'eccezionale votazione',
-      this.today,
+      'Mete estive',
+      'Votazione per la meta estiva preferita dagli italiani',
+      new Date('2022, 04, 10'),
       this.tomorrow,
       false,
       '',
