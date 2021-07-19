@@ -23,30 +23,32 @@ export class VoteService {
       new VoteCard('ciaone', 'patito democristiano')
     ),
     new Votation(
-      'Regionali',
-      'bruttissima votazione',
+      'Frameworks	',
+      'Votazione per la scelta del miglior framework per lo sviluppo front-end di applicazioni web',
       new Date('2020, 04, 10'),
       this.tomorrow,
       false,
       '',
-      new VoteCard('assets/images/lega.jpg', 'Lega Nord'),
-      new VoteCard('assets/images/berla.jpg', 'Forza Italia'),
+      new VoteCard('assets/images/vue.png', 'Vue.js'),
+      new VoteCard('assets/images/angular.png', 'Angular'),
+      [new VoteCard('assets/images/react.png', 'React')]
+    ),
+    new Votation(
+      'Cani',
+      'Votazione per la scelta del cane più bello',
+      new Date('2020, 04, 10'),
+      this.tomorrow,
+      false,
+      '',
+      new VoteCard('assets/images/pastore_tedesco.jpg', 'Pastore tedesco'),
+      new VoteCard('assets/images/doberman.jpg', 'Doberman'),
       [
-        new VoteCard(
-          'assets/images/movimento5stelle.jpg',
-          'Movimento 5 stelle'
-        ),
-        new VoteCard(
-          'assets/images/noi_per_il_futuro.jpg',
-          'Noi per il futuro'
-        ),
-        new VoteCard('assets/images/potere_al_popolo.jpg', 'Potere al popolo!'),
-        new VoteCard(
-          'assets/images/giovani_democratici.png',
-          'Giovani democratici'
-        ),
-        new VoteCard('assets/images/italia_viva.png', 'Italia Viva'),
-        new VoteCard('assets/images/fratelli_italia.png', "Fratelli d'Italia"),
+        new VoteCard('assets/images/labrador.jpg', 'Labrador'),
+        new VoteCard('assets/images/golden_retriver.jpg', 'Golden retriever'),
+        new VoteCard('assets/images/beagle.jpg', 'Beagle'),
+        new VoteCard('assets/images/pitbull.jpg', 'Pitbull'),
+        new VoteCard('assets/images/bassotto.jpg', 'Bassotto'),
+        new VoteCard('assets/images/rottweiler.jpg', 'Rottweiler'),
       ]
     ),
     new Votation(
@@ -57,7 +59,8 @@ export class VoteService {
       true,
       '5 stelle',
       new VoteCard('ciao', '5 stelle'),
-      new VoteCard('ciaone', 'forza italia')
+      new VoteCard('ciaone', 'forza italia'),
+      []
     ),
     new Votation(
       'Comunali',

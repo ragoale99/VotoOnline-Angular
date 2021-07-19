@@ -16,8 +16,23 @@
 .my-row {
   min-height: 2.5em;
   text-align: center;
-  padding: 0.2em;
+  position: relative;
 }
+
+.future-date {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(98, 98, 98, 0.904);
+  font-weight: bold;
+}
+
+.future-text {
+  font-weight: bold;
+  font-size: 22px;
+  color: rgb(219, 24, 24);
+}
+
 .clickable {
   cursor: pointer;
 }
@@ -29,7 +44,7 @@
 }
 
 .dark {
-  background-color: rgba(116, 105, 105, 0.664);
+  background-color: rgba(141, 129, 129, 0.664);
 }
 
 .light {

@@ -58,6 +58,15 @@
       <div class="col-sm-5 center">
         {{ votation.description }}
       </div>
+      <div
+        *ngIf="!checkDataStart(votation.dataStart)"
+        class="col-sm-12 future-date"
+      >
+        <p class="future-text mt-2">
+          Questa votazione inizierà il
+          {{ votation.dataStart | date: "dd/MM/yyyy" }}
+        </p>
+      </div>
     </div>
     <div class="row title-list mt-4">
       <div class="col">

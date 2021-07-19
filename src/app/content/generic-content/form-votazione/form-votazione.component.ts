@@ -69,6 +69,19 @@ export class FormVotazioneComponent implements OnInit {
     return 'hover-behaviour';
   }
 
+  setColDimension(options: VoteCard[]) {
+    if (options.length === 2) {
+      return 'col-lg-6 col-md-6';
+    } else if (options.length === 3) {
+      return 'col-lg-4 col-md-12';
+    } else if (options.length === 4) {
+      return 'col-lg-3 col-md-6';
+    } else if (options.length === 6) {
+      return 'col-lg-4 col-md-6';
+    }
+    return 'col-lg-3 col-md-6';
+  }
+
   successVotation() {
     this.voteService.changeStatusVotation(
       this.selectedCard,

@@ -28,10 +28,10 @@
       fill="#B3B3B3"
     />
   </svg>
-  <h1 class="mt-2" style="font-weight: bold">Voto Online</h1>
+  <h1 class="mt-2" style="font-weight: bold">VotoOnline</h1>
   <div class="last mr-4 mt-1" *ngIf="ruolo !== ''">
     <button class="btn btn-warning px-5 log-out" (click)="openModal(content)">
-      <strong>Log Out</strong>
+      <strong>Logout</strong>
     </button>
   </div>
 </div>
@@ -43,7 +43,7 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">
-      Sicuro di voler effettuare il log out?
+      Sicuro di voler effettuare il logout?
     </h4>
     <button
       type="button"

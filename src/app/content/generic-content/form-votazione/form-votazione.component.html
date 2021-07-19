@@ -35,27 +35,30 @@
         </p>
 
         <ul *ngIf="showRules" class="lista">
-          <li>È possibile votare <strong>un solo</strong> partito.</li>
+          <li>È possibile votare <strong>una sola</strong> opzione.</li>
           <li>
             Per votare è necessario fare un
-            <strong>doppio click (da PC)</strong> o
-            <strong>doppio tap (da mobile)</strong> sulla scheda del partito da
-            votare. Si può fare nuovamente la stessa operazione sul partito
-            scelto per <strong>annulare</strong> la scelta.
+            <strong> click (da PC)</strong> o un
+            <strong> tap (da cellulare)</strong> sull'opzione da votare. Si può
+            fare nuovamente la stessa operazione sulla carta scelta per
+            <strong>annulare</strong> il voto e sceglierne un'altra.
           </li>
           <li>
-            Una volta scelto il partito da votare, cliccare sul bottone
-            <strong>"Termina votazione"</strong>. A questo punto si aprià una
+            Una volta selezionata la carta da votare, cliccare sul bottone
+            <strong> "Termina votazione"</strong>. A questo punto si aprià una
             finestra in cui si potrà confermare la votazione o tornare indietro.
-            Tale bottone rimarrà <strong>disabilitato</strong> fino a che non si
-            avrà fatto una scelta.
+            Tale bottone rimarrà <strong> disabilitato </strong> fino a che non
+            si avrà fatto una scelta.
           </li>
         </ul>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-lg-3 col-md-6" *ngFor="let option of optionsArr">
+      <div
+        [ngClass]="setColDimension(optionsArr)"
+        *ngFor="let option of optionsArr"
+      >
         <div
           class="card disable-select"
           (click)="
@@ -68,10 +71,11 @@
             <img
               [src]="option.imgPath"
               [alt]="'logo ' + option.name"
-              class="img-fluid rounded-circle w-75 mb-3"
+              class="card-img mb-3"
             />
-            <h3>{{ option.name }}</h3>
-            <p>Lorem Ipsum</p>
+            <h3>
+              <strong>{{ option.name }}</strong>
+            </h3>
           </div>
         </div>
       </div>

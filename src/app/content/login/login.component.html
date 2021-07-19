@@ -1,7 +1,7 @@
 <div class="login-container" *ngIf="errorTextStatus === ''">
   <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
     <div class="form-group">
-      <label for="email">Email address</label>
+      <label for="email">Email</label>
       <input
         type="email"
         class="form-control"
@@ -9,7 +9,7 @@
         ngModel
         email
         aria-describedby="emailHelp"
-        placeholder="Enter email"
+        placeholder="Inserisci l'email"
         #email="ngModel"
         required
       />
@@ -18,14 +18,14 @@
         style="color: red"
         *ngIf="!email.valid && email.touched"
       >
-        Please enter a valid email
+        L'email inserita non è valida
       </p>
       <p
         class="message mt-2"
         style="color: green"
         *ngIf="email.valid && email.touched"
       >
-        Valid email
+        Email valida
       </p>
     </div>
     <div class="form-group">
@@ -35,7 +35,7 @@
         class="form-control"
         autocomplete="on"
         name="password"
-        placeholder="Password"
+        placeholder="Inserisci la password"
         ngModel
         #password="ngModel"
         required
@@ -45,14 +45,14 @@
         style="color: red"
         *ngIf="!password.valid && password.touched"
       >
-        Please enter a valid password
+        La password inserita non è valida
       </p>
       <p
         class="message mt-2"
         style="color: green"
         *ngIf="password.valid && password.touched"
       >
-        Valid password
+        Password valida
       </p>
     </div>
     <div class="submit-container">
@@ -70,7 +70,7 @@
           class="btn btn-primary px-5 py-2 log"
           [disabled]="!f.valid"
         >
-          Log In
+          Accedi
         </button>
       </div>
     </div>
