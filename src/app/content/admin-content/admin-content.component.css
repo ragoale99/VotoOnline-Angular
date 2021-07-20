@@ -1,0 +1,69 @@
+.title-list {
+  text-align: center;
+  border: 2px solid rgb(209, 195, 195);
+  background-color: rgba(204, 204, 204, 0.637);
+}
+
+.header-list {
+  text-align: center;
+  min-height: 2em;
+  font-size: 18px;
+  text-align: center;
+  color: #6d1c1b;
+  background-color: rgba(139, 139, 139, 0.637);
+}
+
+.my-row {
+  min-height: 2.5em;
+  text-align: center;
+  position: relative;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark {
+  background-color: rgba(141, 129, 129, 0.664);
+}
+
+.light {
+  background-color: rgba(224, 211, 211, 0.897);
+}
+
+.info {
+  width: 20px;
+}
+
+.no-votes {
+  font-size: 28px;
+  color: red;
+}
+
+@media (min-width: 580px) {
+  .clickable:hover {
+    transform: scale(1.03);
+    transition: all 0.3s;
+  }
+
+  .clickable:active {
+    transform: scale(1);
+    transition: all 0.3s;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-row {
+    font-size: 14px;
+  }
+
+  .header-list {
+    font-size: 16px;
+  }
+}

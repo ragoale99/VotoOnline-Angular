@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { VoteService } from 'src/app/vote.service';
 import { Votation } from 'src/app/votation.model';
@@ -11,6 +18,8 @@ import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-votazione.component.css'],
 })
 export class AddVotazioneComponent implements OnInit {
+  @Input() creaVotation!: boolean;
+  @Output() creaVotationChange = new EventEmitter<boolean>();
   imagePath: any[] = ['', ''];
   imgURL: any[] = ['', ''];
 
@@ -75,6 +84,10 @@ export class AddVotazioneComponent implements OnInit {
     return this.votationForm.get('cards').controls.length >= 6;
   }
 
+  backToAdminPage() {
+    this.creaVotationChange.emit(false);
+  }
+
   onSubmit() {
     const arrayControls = this.votationForm.get('cards') as FormArray;
     let voteCards = [];
@@ -113,5 +126,7 @@ export class AddVotazioneComponent implements OnInit {
       this.staticAlertClosed = true;
       this.staticAlert.close();
     }, 4000);
+
+    this.creaVotationChange.emit(false);
   }
 }

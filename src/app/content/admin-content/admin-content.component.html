@@ -7,8 +7,115 @@
 >
   <strong>Ti sei autenticato correttamente!</strong>
   <hr />
-  <p>Ora puoi creare una nuova votazione.</p>
+  <p>Ora puoi creare una nuova votazione o eliminare quelle già presenti.</p>
 </ngb-alert>
 <!-- FINE NOTIFICA -->
 
-<app-add-votazione></app-add-votazione>
+<div class="container mt-4" *ngIf="!creaVotation">
+  <div class="row title-list">
+    <div class="col">
+      <h3 class="mt-2">
+        <strong>Votazioni</strong>
+        <span
+          placement="bottom"
+          ngbTooltip="Selezionare una votazione per eliminarla!"
+        >
+          <img
+            src="assets/icons/information.png"
+            alt=""
+            class="info ml-2 mb-3"
+          />
+        </span>
+      </h3>
+    </div>
+  </div>
+  <div class="row header-list">
+    <div class="col-sm-3 center"><strong>Votazione</strong></div>
+    <div class="col-sm-2 center"><strong>Data inizio</strong></div>
+    <div class="col-sm-2 center"><strong>Data fine</strong></div>
+    <div class="col-sm-5 center"><strong>Descrizione</strong></div>
+  </div>
+  <div *ngIf="votations.length > 0">
+    <div
+      class="row my-row p-2"
+      *ngFor="let votation of votations; let i = index"
+      [ngClass]="{
+        dark: i % 2 == 0,
+        light: i % 2 != 0,
+        clickable: true
+      }"
+      (click)="openModal(content, votation)"
+    >
+      <div class="col-sm-3 center">
+        <strong>{{ votation.title }}</strong>
+      </div>
+      <div class="col-sm-2 center">
+        {{ votation.dataStart | date: "dd/MM/yyyy" }}
+      </div>
+      <div class="col-sm-2 center">
+        {{ votation.dataEnd | date: "dd/MM/yyyy" }}
+      </div>
+      <div class="col-sm-5 center">
+        {{ votation.description }}
+      </div>
+    </div>
+  </div>
+  <p *ngIf="votations.length === 0" class="no-votes center">
+    Non ci sono votazioni. Puoi però crearne una nuova!
+  </p>
+  <div class="center mt-4">
+    <button type="button" class="btn btn-success" (click)="createVotation()">
+      Crea una nuova votazione
+    </button>
+  </div>
+</div>
+
+<!-- MODALE -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Stai per eliminare la votazione
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>La votazione ha:</p>
+    <ul>
+      <li><strong>Nome: </strong> {{ selectedVotation.title }}</li>
+      <li><strong>Descrizione: </strong> {{ selectedVotation.description }}</li>
+      <li>
+        <strong>Data Inizio: </strong>
+        {{ selectedVotation.dataStart | date: "dd/MM/yyyy" }}
+      </li>
+      <li>
+        <strong>Data Fine: </strong>
+        {{ selectedVotation.dataEnd | date: "dd/MM/yyyy" }}
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close()">
+      Indietro
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="modal.close(); deleteVotation()"
+    >
+      Elimina votazione
+    </button>
+  </div>
+</ng-template>
+<!-- FINE MODALE -->
+
+<app-add-votazione
+  *ngIf="creaVotation"
+  [(creaVotation)]="creaVotation"
+></app-add-votazione>

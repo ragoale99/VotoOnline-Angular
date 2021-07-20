@@ -61,3 +61,23 @@ textarea {
 .not-display {
   display: none;
 }
+
+.back-container {
+  position: absolute;
+  top: 3em;
+  left: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: rgb(224, 133, 105);
+  cursor: pointer;
+}
+
+.back-container:hover {
+  transform: scale(1.03);
+}
+
+.back-text {
+  font-size: 22px;
+}

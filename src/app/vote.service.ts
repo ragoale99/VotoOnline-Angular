@@ -14,7 +14,7 @@ export class VoteService {
   votations: Votation[] = [
     new Votation(
       'Piatti italiani',
-      'Votazione per il piatto italiano più buono',
+      'Votazione per il piatto italiano più buono.',
       this.today,
       this.tomorrow,
       true,
@@ -24,7 +24,7 @@ export class VoteService {
     ),
     new Votation(
       'Frameworks	',
-      'Votazione per la scelta del miglior framework per lo sviluppo front-end di applicazioni web',
+      'Votazione per la scelta del miglior framework per lo sviluppo front-end di applicazioni web.',
       new Date('2020, 04, 10'),
       this.tomorrow,
       false,
@@ -35,7 +35,7 @@ export class VoteService {
     ),
     new Votation(
       'Cani',
-      'Votazione per il cane più bello',
+      'Votazione per il cane più bello.',
       new Date('2020, 04, 10'),
       this.tomorrow,
       false,
@@ -53,7 +53,7 @@ export class VoteService {
     ),
     new Votation(
       'Gatti',
-      'Votazione per il gatto più bello',
+      'Votazione per il gatto più bello.',
       this.today,
       this.tomorrow,
       true,
@@ -64,7 +64,7 @@ export class VoteService {
     ),
     new Votation(
       'Mete estive',
-      'Votazione per la meta estiva preferita dagli italiani',
+      'Votazione per la meta estiva preferita dagli italiani.',
       new Date('2022, 04, 10'),
       this.tomorrow,
       false,
@@ -83,6 +83,12 @@ export class VoteService {
 
   addVotation(votation: Votation) {
     this.votations.push(votation);
+  }
+
+  deleteVotation(votation: Votation) {
+    const index = this.votations.indexOf(votation);
+    this.votations.splice(index, 1);
+    console.log(this.votations);
   }
 
   uncompletedVotations() {

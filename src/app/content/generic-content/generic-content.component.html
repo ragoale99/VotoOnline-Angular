@@ -28,7 +28,7 @@
     </div>
 
     <div
-      class="row my-row"
+      class="row my-row p-2"
       *ngFor="let votation of uncompletedVotations; let i = index"
       [ngClass]="{
         dark: i % 2 == 0,
@@ -79,7 +79,7 @@
       <div class="col-sm-4 center"><strong>Voto</strong></div>
     </div>
     <div
-      class="row my-row"
+      class="row my-row p-2"
       *ngFor="let votation of completedVotations; let i = index"
       [ngClass]="i % 2 == 0 ? 'dark' : 'light'"
     >
