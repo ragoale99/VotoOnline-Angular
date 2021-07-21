@@ -75,9 +75,43 @@ textarea {
 }
 
 .back-container:hover {
-  transform: scale(1.03);
+  transform: scale(1.1);
+  transition: all 0.2s;
 }
 
-.back-text {
+.back-container img {
+  width: 30px;
+}
+
+.back-container p {
   font-size: 22px;
+}
+
+.fab {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .back-container {
+    display: none;
+  }
+
+  .fab {
+    display: block;
+    border-radius: 50%;
+    background-color: rgb(228, 187, 141);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: fixed;
+    bottom: 0.65em;
+    left: 0.4em;
+    border: none;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+  }
+
+  .fab:hover {
+    transform: scale(1.1);
+    transition: all 0.2s;
+  }
 }
