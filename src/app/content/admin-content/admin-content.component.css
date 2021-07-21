@@ -46,12 +46,6 @@
   color: red;
 }
 
-.pos {
-  width: 20px;
-  border-radius: 50%;
-  position: absolute;
-}
-
 @media (min-width: 580px) {
   .clickable:hover {
     transform: scale(1.03);
