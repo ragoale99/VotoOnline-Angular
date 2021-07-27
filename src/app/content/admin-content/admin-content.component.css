@@ -1,7 +1,7 @@
 .title-list {
   text-align: center;
   border: 2px solid rgb(209, 195, 195);
-  background-color: rgba(204, 204, 204, 0.637);
+  background-color: rgb(204, 204, 204);
 }
 
 .header-list {
@@ -10,7 +10,7 @@
   font-size: 18px;
   text-align: center;
   color: #6d1c1b;
-  background-color: rgba(139, 139, 139, 0.637);
+  background-color: rgb(139, 139, 139);
 }
 
 .my-row {
@@ -30,11 +30,11 @@
 }
 
 .dark {
-  background-color: rgba(141, 129, 129, 0.664);
+  background-color: rgb(170, 156, 156);
 }
 
 .light {
-  background-color: rgba(224, 211, 211, 0.897);
+  background-color: rgb(224, 211, 211);
 }
 
 .info {

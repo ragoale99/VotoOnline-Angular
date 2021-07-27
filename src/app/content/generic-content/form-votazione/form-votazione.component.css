@@ -31,8 +31,8 @@ ul {
 .card {
   height: 14em;
   border-radius: 0;
-  box-shadow: 5px 5px 15px #ccc;
-
+  box-shadow: 5px 5px 15px rgb(109, 109, 109);
+  border-radius: 6px;
   transition: all 0.3 ease-in;
   -webkit-transition: all 0.3 ease-in;
   -moz-transition: all 0.3 ease-in;
@@ -44,14 +44,14 @@ ul {
 #vote-container .hover-behaviour:hover,
 #vote-container .selected {
   transform: scale(1.05);
-  background-color: rgba(236, 174, 234, 0.52);
+  background-color: rgb(236, 174, 234);
   color: rgb(0, 0, 0);
   border: none;
-  box-shadow: 5px 5px 10px rgba(131, 85, 131, 0.644);
+  box-shadow: 5px 5px 10px rgba(131, 85, 131, 0.664);
 }
 
 .not-selected {
-  background-color: rgba(70, 64, 64, 0.315);
+  background-color: rgb(110, 109, 109);
   cursor: default;
 }
 

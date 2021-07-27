@@ -1,15 +1,16 @@
 .login-container {
   padding: 1.5em;
-  background-color: rgba(224, 133, 105, 0.452);
+  background-color: #c89b9b;
   width: 30em;
   max-width: 80%;
   margin: 4em auto;
-  border: solid 1px #0000009a;
+  border: solid 2px #c57b7b;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 3px 3px 3px #c89b9bca;
 }
 
 form {
@@ -49,12 +50,16 @@ input.ng-valid.ng-touched:focus {
   flex-direction: row;
 }
 
+.log {
+  width: 100%;
+}
+
 .sub-block {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 50%;
+  width: 100%;
 }
 
 .error-container {
