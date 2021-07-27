@@ -1,10 +1,10 @@
 .login-container {
   padding: 1.5em;
-  background-color: #c89b9b;
+  background-color: #ceacac;
   width: 30em;
   max-width: 80%;
   margin: 4em auto;
-  border: solid 2px #c57b7b;
+  border: solid 2px #cfa3a3;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ input.ng-valid.ng-touched:focus {
 }
 
 .message {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
 }
