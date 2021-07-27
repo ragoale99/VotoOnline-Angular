@@ -11,7 +11,7 @@
     <div class="col-sm">
       <form [formGroup]="votationForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="title">Titolo votazione</label>
+          <label for="title">Titolo</label>
           <input
             type="text"
             class="form-control"
@@ -36,7 +36,7 @@
           }}</span>
         </div>
         <div class="form-group">
-          <label for="dateStart">Data di inizio votazione</label>
+          <label for="dateStart">Data di inizio</label>
           <input
             type="date"
             class="form-control"
@@ -45,7 +45,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="dateEnd">Data di fine votazione</label>
+          <label for="dateEnd">Data di fine</label>
           <input
             type="date"
             class="form-control"
@@ -54,6 +54,7 @@
           />
         </div>
         <hr />
+        <h4 className="mt-5 centered">Inserisci opzioni</h4>
         <div class="form-group card-form">
           <h4>Carta 1</h4>
           <label for="partito1">Nome</label>
@@ -66,6 +67,10 @@
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
+          <div>
+            <label for="partitoImg1">Immagine</label>
+          </div>
+
           <input
             formControlName="partitoImg1"
             id="partitoImg1"
@@ -94,6 +99,10 @@
           />
           <!-- inserimento immagine con preview -->
           <span style="color: red" *ngIf="message">{{ message }}</span>
+          <div>
+            <label for="partitoImg2">Immagine</label>
+          </div>
+
           <input
             formControlName="partitoImg2"
             id="partitoImg2"
