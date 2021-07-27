@@ -29,8 +29,8 @@ ul {
 }
 
 .card {
-  height: 14em;
-  border-radius: 0;
+  height: 12em;
+  max-height: 75%;
   box-shadow: 5px 5px 15px rgb(109, 109, 109);
   border-radius: 6px;
   transition: all 0.3 ease-in;
