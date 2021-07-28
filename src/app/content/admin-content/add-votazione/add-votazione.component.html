@@ -73,6 +73,7 @@
 
           <input
             formControlName="partitoImg1"
+            class="resize-inp"
             id="partitoImg1"
             type="file"
             accept="image/*"
@@ -110,6 +111,7 @@
             accept="image/*"
             (change)="preview($event.target, 1)"
             required
+            class="resize-inp"
           />
           <img
             [src]="imgURL[1]"
@@ -145,6 +147,7 @@
                 type="file"
                 accept="image/*"
                 (change)="preview($event.target, i + 2)"
+                class="resize-inp"
               />
               <!-- fine inserimento immagine con preview -->
               <img
@@ -186,8 +189,7 @@
         </ng-container>
 
         <div
-          class="m-auto"
-          style="width: 30%"
+          class="m-auto sub-container"
           placement="top"
           [ngbTooltip]="
             !votationForm.valid
