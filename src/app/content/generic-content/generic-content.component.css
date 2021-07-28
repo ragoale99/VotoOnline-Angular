@@ -79,4 +79,8 @@
   .header-list {
     font-size: 16px;
   }
+
+  .generic-container {
+    max-width: 98%;
+  }
 }
