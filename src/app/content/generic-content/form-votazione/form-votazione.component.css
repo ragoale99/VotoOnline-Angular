@@ -12,8 +12,8 @@
 }
 
 ul {
-  list-style-type: none;
-  margin-left: -2em;
+  margin-left: -1em;
+  text-align: left !important;
 }
 
 .my-toprow {

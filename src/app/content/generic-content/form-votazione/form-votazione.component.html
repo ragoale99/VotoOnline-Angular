@@ -16,7 +16,9 @@
   <div class="container my-4 py-3 text-center">
     <div class="row my-toprow">
       <div class="col">
-        <h1>Votazione: {{ selectedVotation.title }}</h1>
+        <h1>
+          Votazione: <strong>{{ selectedVotation.title }}</strong>
+        </h1>
         <p class="rules" (click)="onShowRules()">
           {{ !showRules ? "Apri" : "Chiudi" }} le regole da seguire per la
           votazione
@@ -34,7 +36,7 @@
           />
         </p>
 
-        <ul *ngIf="showRules" class="lista">
+        <ul *ngIf="showRules">
           <li>È possibile votare <strong>una sola</strong> opzione.</li>
           <li>
             Per votare è necessario fare un
