@@ -13,6 +13,7 @@ import { GenericContentComponent } from './content/generic-content/generic-conte
 import { AdminContentComponent } from './content/admin-content/admin-content.component';
 import { FormVotazioneComponent } from './content/generic-content/form-votazione/form-votazione.component';
 import { AddVotazioneComponent } from './content/admin-content/add-votazione/add-votazione.component';
+import { NomeComponenteComponent } from './nome-componente/nome-componente.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddVotazioneComponent } from './content/admin-content/add-votazione/add
     AdminContentComponent,
     FormVotazioneComponent,
     AddVotazioneComponent,
+    NomeComponenteComponent,
   ],
   imports: [
     BrowserModule,
